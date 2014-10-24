@@ -1,5 +1,5 @@
 <?php
-	$droot="D:/phpwork/bookit";
+	$droot="D:/zendwork/BookIt";
 	$base="/bookit";
 	$siteName="BookIt";
 	include $_SERVER["DOCUMENT_ROOT"].'/common/conn.php';

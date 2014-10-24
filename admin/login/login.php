@@ -37,20 +37,20 @@ if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	if($user->level==0){
 		$_SESSION['user'] = $user;
 		$_SESSION['userid'] = $user->id;
-		Header("Location: /admin/index.php");
+		Header("Location: /admin/cmsmng.php");
 		exit;
 	}else{
 		unset($_SESSION['userid']);
 		unset($_SESSION['user']);
 		$_SESSION['msg']="您没有权限登陆后台";
-		header("Location: /admin/backlogin.php");
+		header("Location: /admin/login/index.php");
 		exit;
 	}
 } else {
 	unset($_SESSION['userid']);
 	unset($_SESSION['user']);
 	$_SESSION['msg']="用户名密码错误";
-	header("Location: /admin/backlogin.php");
+	header("Location: /admin/login/index.php");
 	exit;
 	exit;
 }

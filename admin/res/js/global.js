@@ -1,4 +1,4 @@
-﻿var listBookId,listOrderBy,listPageNo,listPageSize;
+﻿var listBookId,listOrderBy,listPageNo,listPageSize,listTotalPage;
 function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 	if(!bookId){
 		bookId=-1;
@@ -13,12 +13,12 @@ function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 	}
 	listPageNo=pageNo;
 	if(!pageSize){
-		pageSize=1;
+		pageSize=20;
 	}
 	listPageSize=pageSize;
 	$.ajax({
 		type: 'POST',
-		url: "/admin/list.php",
+		url: "/admin/booklist.php",
 		data: {bookId:bookId,orderBy:orderBy,pageNo:pageNo,pageSize:pageSize},
 		success: function(data){
 			$("#list_con").html(data);
@@ -41,8 +41,8 @@ $(function(){
 			if(listPageNo<1){
 				listPageNo=1;
 			}
-			if(listPageNo>($(".page_nr a").length-2)){
-				listPageNo=$(".page_nr a").length-2;
+			if(listPageNo>listTotalPage){
+				listPageNo=listTotalPage;
 			}
 			queryForOrderList(listBookId, listOrderBy, listPageNo, listPageSize);
 		}

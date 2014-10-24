@@ -27,7 +27,7 @@ if(!isset($user)){
 		<!-- 图标列表查询相关js -->
 		<script type="text/javascript">
 		  $(function() {
-		    queryForOrderList();//获取行业分类列表
+		    queryForOrderList(null,'order_date',1,1);//获取行业分类列表
 		    $('#left_con').css("width", "0px");
 		    $('#left_con').show();
 		  });
@@ -43,10 +43,13 @@ if(!isset($user)){
 				</div>
 				<ul class="top_nav">
 					<li class="select" id="tb_select">
-						<a href="${codeBase}/admin/index.html">预订管理</a>
+						<a href="<?=$base?>/admin/cmsmng.php">网站管理</a>
+					</li>
+					<li class="select" id="tb_select">
+						<a href="<?=$base?>/admin/bookmng.php">预订管理</a>
 					</li>
 					<li id="xt_select">
-						<a href="${codeBase}/stati/index.html">用户管理</a>
+						<a href="<?=$base?>/admin/usermng.php">用户管理</a>
 					</li>
 				</ul>
 			</div>

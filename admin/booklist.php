@@ -60,7 +60,7 @@ if($listTotalSize%$listPageSize!=0){
 }else{
 	$listTotalPage=floor($listTotalSize/$listPageSize);
 }
-//echo "OrderBy".$listOrderBy."  BookId".$listBookId."  PageNo".$listPageNo."  PageSize".$listPageSize."  TotalSize".$listTotalSize."<br/>";
+//echo "OrderBy".$listOrderBy."  BookId".$listBookId."  PageNo".$listPageNo."  PageSize".$listPageSize."  TotalSize".$listTotalSize." TotalPage".$listTotalPage."<br/>";
 $first=($listPageNo-1)*$listPageSize;
 $offset=$listPageSize;
 //echo "first".$first."  last".$offset."<br/>";
@@ -91,6 +91,9 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	$i++;
 }
 ?>
+<script type="text/javascript">
+listTotalPage=<?=$listTotalPage?>;
+</script>
 <div class="pic_list">
 	<table cellspacing="0" cellpadding="0" border="0" class="pic_tab">
 		<tbody>
@@ -132,14 +135,50 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 		<a id="prePage" class="pre" href="javascript:void(0);">上一页</a>
 		<?php }?>
 		<?php 
-		for ($j=1;$j<=$listTotalPage;$j++){
-			echo '<a class="';
-			if($listPageNo==$j){
-				echo 'num_select';
-			}else{
-				echo 'num_normal';
+		$range=3;//显示当前页码左右范围页码
+		if($listPageNo-$range<=2){
+			$max=$listPageNo+$range>$listTotalPage?$listTotalPage:$listPageNo+$range;
+			for ($j=1;$j<=$max;$j++){
+				echo '<a class="';
+				if($listPageNo==$j){
+					echo 'num_select';
+				}else{
+					echo 'num_normal';
+				}
+				echo '" href="javascript:void(0);">'.$j.'</a>';
+				if($listTotalPage>$listPageNo+$range+1 && $j==$listPageNo+$range){
+					echo '<span class="syh">...</span>';
+					echo '<a class="num_normal" href="javascript:void(0);">'.$listTotalPage.'</a>';
+				}
 			}
-			echo '" href="javascript:void(0);">'.$j.'</a>';
+		}else if($listPageNo+$range>=$listTotalPage-1){
+			for ($j=$listPageNo-$range;$j<=$listTotalPage;$j++){
+				if($j==$listPageNo-$range){
+					echo '<a class="num_normal" href="javascript:void(0);">1</a>';
+					echo '<span class="syh">...</span>';
+				}
+				echo '<a class="';
+				if($listPageNo==$j){
+					echo 'num_select';
+				}else{
+					echo 'num_normal';
+				}
+				echo '" href="javascript:void(0);">'.$j.'</a>';
+			}
+		}else{
+			echo '<a class="num_normal" href="javascript:void(0);">1</a>';
+			echo '<span class="syh">...</span>';
+			for ($j=$listPageNo-$range;$j<=$listPageNo+$range;$j++){
+				echo '<a class="';
+				if($listPageNo==$j){
+					echo 'num_select';
+				}else{
+					echo 'num_normal';
+				}
+				echo '" href="javascript:void(0);">'.$j.'</a>';
+			}
+			echo '<span class="syh">...</span>';
+			echo '<a class="num_normal" href="javascript:void(0);">'.$listTotalPage.'</a>';
 		}
 		?>
 		<?php if($listPageNo!=$listTotalPage){?>

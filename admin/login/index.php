@@ -25,7 +25,7 @@ $(function(){
 <body class="login_body">
 	<div class="login">
         <div class="login_dl">
-        	<form action='<?=$base?>/admin/login.php' method="post" name="form_login">
+        	<form action='<?=$base?>/admin/login/login.php' method="post" name="form_login">
         	<div class="dl_k">
             	<img src="<?=$base?>/admin/res/images/person.gif" class="person" />
                 <input name="username" id="username" type="text" class="login_input" value='请输入用户名' onblur="trySet(this,'请输入用户名');" onfocus="tryClear(this,'请输入用户名');" />
