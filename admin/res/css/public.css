@@ -157,6 +157,16 @@ body,html {
 		color:#1b91dc;
 		font-size:18px;
 	}
+
+.left_nav li.noselect a:link, {
+		width:130px;
+		height:63px;
+		line-height:63px;
+		float:left;
+		text-align:center;
+		font-family:'microsoft yahei';
+	}	
+
 .grey_edit,.blue_edit{
 		width:24px;
 		height:24px;

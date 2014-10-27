@@ -18,7 +18,7 @@ function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 	listPageSize=pageSize;
 	$.ajax({
 		type: 'POST',
-		url: "/admin/booklist.php",
+		url: "/admin/frame/booklist.php",
 		data: {bookId:bookId,orderBy:orderBy,pageNo:pageNo,pageSize:pageSize},
 		success: function(data){
 			$("#list_con").html(data);
@@ -27,7 +27,7 @@ function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 	});
 }
 $(function(){
-	$(".page_nr a").live("click",function(){
+	$(".page_nr a").live("click",function(event){
 		var con=$(this).html();
 		var pageNo=0;
 		if(pageNo=parseInt(con)){
@@ -46,5 +46,6 @@ $(function(){
 			}
 			queryForOrderList(listBookId, listOrderBy, listPageNo, listPageSize);
 		}
+		event.preventDefault();
 	});
 });

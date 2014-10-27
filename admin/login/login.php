@@ -6,7 +6,7 @@ header("Content-Type:text/html;charset=UTF-8");
 if(@$_GET['action']=='logout'){
 	unset($_SESSION['userid']);
 	unset($_SESSION['user']);
-	header("Location: /admin/backlogin.php");
+	header("Location: /admin/login/index.php");
 	exit;
 }
 //登录
@@ -37,7 +37,7 @@ if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	if($user->level==0){
 		$_SESSION['user'] = $user;
 		$_SESSION['userid'] = $user->id;
-		Header("Location: /admin/cmsmng.php");
+		Header("Location: /admin/frame/cmsmng.php");
 		exit;
 	}else{
 		unset($_SESSION['userid']);

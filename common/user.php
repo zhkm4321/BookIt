@@ -8,6 +8,7 @@ class User{
 	var $organ;
 	var $sculpture;
 	var $level;
-	var $regDate;
 	var $lastLogin;
+	var $regDate;
+	var $regIp;
 }
