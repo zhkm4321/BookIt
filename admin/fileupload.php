@@ -56,7 +56,6 @@ if (! isset ( $pic )) {
 		exit ();
 	}
 }
-var_dump ( $pic );
 function exsistInDB($dbh, $md5) {
 	$sql = "select * from b_pictures where md5=:md5";
 	$stmt = $dbh->prepare ( $sql );
@@ -70,4 +69,8 @@ function exsistInDB($dbh, $md5) {
 		return null;
 	}
 }
+$arr=array();
+$arr['filePath'];
+$arr['id'];
+echo json_encode($arr);
 ?>

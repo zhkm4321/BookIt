@@ -80,14 +80,14 @@ var BASE='<?=$base?>';
 			</div>
 		</div>
 	</div>
-	<script src="<?=$base?>/thirdparty/webuploader015/js/webuploader.min.js" type="text/javascript"></script>
+	<script src="<?=$base?>/thirdparty/webuploader015/js/webuploader.js" type="text/javascript"></script>
 	<script src="<?=$base?>/admin/res/js/uploader.js" type="text/javascript"></script>
 	<div class="popup" id="popup_upload">
 		<h3 class="h3_b"><span>点击上传或将照片拖到这里</span><a class="close"></a></h3>
 		<div id="uploader" class="uploader_box">
 		    <div class="queueList">
 		        <div id="dndArea" class="placeholder">
-		            <div id="picker"></div>
+		            <div id="filePicker"></div>
 		        </div>
 		    </div>
 		    <div class="statusBar" style="display:none;">
