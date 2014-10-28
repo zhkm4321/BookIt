@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
+include_once $_SERVER ["DOCUMENT_ROOT"].'/config.php';
 $user = $_SESSION ['user'];
 if (! isset ( $user )) {
 	header ( "Location: /admin/login/index.php" );
@@ -10,7 +10,8 @@ $stmt = $dbh->prepare ( $sql );
 $stmt->bindParam ( "modelId", $_SESSION ["CURRENT_MODEL"] );
 $stmt->execute ();
 ?>
-<ul>
+<div>首页焦点滚动图</div>
+<ul class="pic_list">
 <?php
 while ( $row = $stmt->fetch ( PDO::FETCH_ASSOC ) ) {
 ?>
@@ -19,3 +20,4 @@ while ( $row = $stmt->fetch ( PDO::FETCH_ASSOC ) ) {
 }
 ?>
 </ul>
+<div id="add_pic" class="select_pic">添加</div>

@@ -17,12 +17,15 @@ if (! isset ( $user )) {
 <title><?=$siteName?> - 后台管理</title>
 <link rel="stylesheet" type="text/css" href="<?=$base?>/admin/res/css/reset.css" media="all" />
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/public.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" href="<?=$base?>/admin/res/css/pop.css" type="text/css" />
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?=$base?>/thirdparty/webuploader015/css/webuploader.css" type="text/css" media="all" />
 <script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/cmsmng.js" type="text/javascript"></script>
+<script type="text/javascript">
+var BASE='<?=$base?>';
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -33,7 +36,7 @@ if (! isset ( $user )) {
 					<a href="/admin/login/login.php?action=logout">退出</a>
 			</div>
 			<ul class="top_nav">
-				<li class="select"><a href="<?=$base?>/admin/frame/cmsmng.php?action=index">网站管理</a></li>
+				<li class="select"><a href="<?=$base?>/admin/frame/cmsmng.php?action=indexMng">网站管理</a></li>
 				<li><a href="<?=$base?>/admin/frame/bookmng.php">预订管理</a></li>
 				<li><a href="<?=$base?>/admin/frame/usermng.php">用户管理</a></li>
 			</ul>
@@ -75,6 +78,27 @@ if (! isset ( $user )) {
 				}
 				?>
 			</div>
+		</div>
+	</div>
+	<script src="<?=$base?>/thirdparty/webuploader015/js/webuploader.min.js" type="text/javascript"></script>
+	<script src="<?=$base?>/admin/res/js/uploader.js" type="text/javascript"></script>
+	<div class="popup" id="popup_upload">
+		<h3 class="h3_b"><span>点击上传或将照片拖到这里</span><a class="close"></a></h3>
+		<div id="uploader" class="uploader_box">
+		    <div class="queueList">
+		        <div id="dndArea" class="placeholder">
+		            <div id="picker"></div>
+		        </div>
+		    </div>
+		    <div class="statusBar" style="display:none;">
+		        <div class="progress">
+		            <span class="text">0%</span>
+		            <span class="percentage"></span>
+		        </div><div class="info"></div>
+		        <div class="btns">
+		            <div id="filePicker2"></div>
+		        </div>
+		    </div>
 		</div>
 	</div>
 </body>

@@ -27,7 +27,7 @@ function queryForUserList(level,orderBy,pageNo,pageSize) {
 	});
 }
 $(function(){
-	$(".page_nr a").live("click",function(event){
+	$(".page_nr a").on("click",function(event){
 		var con=$(this).html();
 		var pageNo=0;
 		if(pageNo=parseInt(con)){

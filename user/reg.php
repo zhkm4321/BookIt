@@ -38,7 +38,7 @@ if(is_uploaded_file($_FILES['sculpture']['tmp_name'])){
 	//随机生成一个新文件名
 	$pInfo=pathinfo($filename);
 	echo 'pathinfo($sculpFile["tmp_name"])';
-	var_dump($pInfo);
+	//var_dump($pInfo);
 	$dest_dir=$uploadPath.date("Ymd");
 	echo $dest_dir."<br/>";
 	if(!file_exists($dest_dir)){

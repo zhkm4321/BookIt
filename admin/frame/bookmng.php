@@ -18,7 +18,6 @@ if(!isset($user)){
 		<title><?=$siteName?> - 后台管理</title>
 		<link rel="stylesheet" type="text/css" href="<?=$base?>/admin/res/css/reset.css" media="all" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/public.css" type="text/css" rel="stylesheet" />
-		<link rel="stylesheet" href="<?=$base?>/admin/res/css/pop.css" type="text/css" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />	
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
 		<script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
@@ -44,7 +43,7 @@ if(!isset($user)){
 				</div>
 				<ul class="top_nav">
 					<li>
-						<a href="<?=$base?>/admin/frame/cmsmng.php?action=index">网站管理</a>
+						<a href="<?=$base?>/admin/frame/cmsmng.php?action=indexMng">网站管理</a>
 					</li>
 					<li class="select">
 						<a href="<?=$base?>/admin/frame/bookmng.php">预订管理</a>
