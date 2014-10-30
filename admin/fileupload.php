@@ -5,7 +5,7 @@ session_start (); // !注意要放在类定义之后
 $user = $_SESSION ['user'];
 if (! isset ( $user )) {
 	header ( "Location: /admin/login/index.php" );
-	exit ();
+	exit;
 }
 /**
  * 生成随机文件名的
@@ -30,10 +30,13 @@ $pic = exsistInDB ( $dbh, $md5 ); // 在数据库中查找是否存在MD5一致�
 if (! isset ( $pic )) {
 	$img_name = $_FILES ['file'] ['name']; // 图片名
 	$uploadPath = $_SERVER ["DOCUMENT_ROOT"] . "/uploadfile/images/";
+	if(!file_exists($uploadPath)){
+		createFolder($uploadPath);
+	}
 	$dest = $uploadPath . time () . '_' . generate_name ( 5 ) . '.' . end ( explode ( '.', $img_name ) ); // 设置文件名为时间戳加上随机数
 	if (! move_uploaded_file ( $img_data, $dest )) {
 		echo "false";
-		exit ();
+		exit;
 	}
 	chmod ( $dest, 0777 ); // 设置上传的文件属性
 	/* ----------以下处理缩略图------------------- */
@@ -53,7 +56,7 @@ if (! isset ( $pic )) {
 	$pic->id = $dbh->lastInsertId ();
 	if (! isset ( $pic->id )) {
 		echo "db error";
-		exit ();
+		exit;
 	}
 }
 function exsistInDB($dbh, $md5) {
@@ -69,8 +72,15 @@ function exsistInDB($dbh, $md5) {
 		return null;
 	}
 }
-$arr=array();
-$arr['filePath'];
-$arr['id'];
+function createFolder($path)
+{
+	if (!file_exists($path))
+	{
+		createFolder(dirname($path));
+		mkdir($path, 0777);
+	}
+}
+
+$arr=array("id"=>$pic->id,"filePath"=>$pic->thumb_path);
 echo json_encode($arr);
 ?>

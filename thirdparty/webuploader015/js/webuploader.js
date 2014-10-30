@@ -4204,7 +4204,7 @@
     
                 if ( count >= max && flag ) {
                     flag = false;
-                    this.trigger( 'error', 'Q_EXCEED_NUM_LIMIT', max, file );
+                    this.trigger( 'error', '单次批量上传不要超过8张', max, file );
                     setTimeout(function() {
                         flag = true;
                     }, 1 );

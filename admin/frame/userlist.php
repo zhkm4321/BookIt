@@ -103,7 +103,7 @@ listTotalPage=<?=$listTotalPage?>;
 		<tbody>
 			<tr class="head_tr">
 				<th style="width: 70px;"><input type="checkbox"
-					style="cursor: pointer;" onclick="allCheck()" id="all" name="all">
+					style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all">
 				&nbsp; <label style="cursor: pointer;" for="all"> ID </label></th>
 			    <th>用户名</th>
 			    <th>姓名</th>

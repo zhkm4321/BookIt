@@ -37,7 +37,7 @@ if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	if($user->level==0){
 		$_SESSION['user'] = $user;
 		$_SESSION['userid'] = $user->id;
-		Header("Location: /admin/frame/cmsmng.php");
+		Header("Location: /admin/frame/cmsmng.php?action=indexMng");
 		exit;
 	}else{
 		unset($_SESSION['userid']);

@@ -99,3 +99,19 @@ function rePosition(targetId, maskId) {
  * 弹出层 end
  * 
  ******************************************************************************/
+function removePic(imgId, imgPath, con) {
+    $.post(BASE + "/admin/filedelete.php", {
+	id : imgId,
+	filePath : imgPath
+    }, function(result) {
+	if (result == "SUCCESS") {
+	    $("#" + con + " li").find("img[pid=" + imgId + "]").parent()
+		    .remove();
+	} else if (result = "nonExist") {
+	    $("#" + con + " li").find("img[pid=" + imgId + "]").parent()
+		    .remove();
+	} else {
+	    alert("删除失败");
+	}
+    });
+}

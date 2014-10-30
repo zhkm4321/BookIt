@@ -82,7 +82,7 @@ $(function() {
 	     * 为空的话则保留原有图片格式。 // 否则强制转换成指定的类型。 type: 'image/jpeg' },
 	     * prepareNextFile:true,
 	     */
-	    fileNumLimit : 300,
+	    fileNumLimit : 8,
 	    accept : {
 		title : 'Images',
 		extensions : 'gif,jpg,jpeg,bmp,png',
@@ -96,7 +96,8 @@ $(function() {
 	    label : '继续添加'
 	});
 	uploader.on('uploadSuccess', function(file, response) {
-	    var f = jQuery.parseJSON(response._raw);
+	    var json=response._raw.substring(response._raw.indexOf("{"));
+	    var f = jQuery.parseJSON(json);
 	    $('#' + file.id).find('img').attr("src", BASE + f.filePath);
 	    $('#' + file.id).append(
 		    '<input type="hidden" name="imgPath" value="' + f.filePath
@@ -274,6 +275,12 @@ $(function() {
 		    delete percentages[file.id];
 		    updateTotalProgress();
 		    $li.off().find('.file-panel').off().end().remove();
+		}else if(result="nonExist"){
+		    delete percentages[file.id];
+		    updateTotalProgress();
+		    $li.off().find('.file-panel').off().end().remove();
+		}else{
+		    alert("删除失败");
 		}
 	    });
 	}
@@ -372,8 +379,9 @@ $(function() {
 		break;
 	    case 'finish':
 		stats = uploader.getStats();
-		if (stats.successNum) {
+		if (stats.successNum=$queue) {
 		    // 上传完成
+		    
 		} else {
 		    // 没有成功的图片，重设
 		    state = 'done';
@@ -504,5 +512,6 @@ $(function() {
 	$("#popup_upload").fadeOut(200);
 	$("#mask").fadeOut(300);
 	deleteMaskElement("mask");
+	window.location.reload();
     });
 });

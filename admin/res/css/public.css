@@ -328,6 +328,7 @@ body,html {
 .r_con {
 		width:100%;
 		float:left;
+		padding-left: 30px;
 	}
 	
 .cz {
@@ -416,7 +417,6 @@ body,html {
 .pic_list {
 		width:95%;
 		margin:0px auto;
-		padding-top:5px;
 	}
 	
 .pic_tab {

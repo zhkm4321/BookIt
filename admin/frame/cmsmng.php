@@ -46,7 +46,7 @@ var BASE='<?=$base?>';
 			<!-- 显示行业分类 -->
 			<ul class="left_nav">
 			<?php
-			$sql="select * from b_model";
+			$sql="select * from b_model order by sortId asc";
 			$stmt=$dbh->prepare($sql);
 			$stmt->execute();
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -58,7 +58,7 @@ var BASE='<?=$base?>';
 			</ul>
 		</div>
 		<div class="right_con" id="right_con">
-			<div class="r_con">
+			<div class="r_con" id="list_con">
 				<?php
 				if (@$_GET ['action'] == 'indexMng') {
 					$_SESSION['CURRENT_MODEL']='1';
