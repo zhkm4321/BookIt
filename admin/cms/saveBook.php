@@ -24,6 +24,8 @@ try {
 	$stmt->execute ();
 	echo "SUCCESS";
 } catch ( PDOException $e ) {
+	echo sizeof($book->zjtj)."\r\n";
+	echo $e->getTraceAsString()."<br/>";
 	echo "FLASE";
 }
 ?>

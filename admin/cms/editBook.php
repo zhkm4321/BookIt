@@ -147,10 +147,10 @@ function formatHTML($str){
     $(function(){
 		$(".toolbar ul li a").click(function(){
 		    if($(this).attr("class")=="gotop"){
-			    alert("gotop");
+				$('html,body').animate({scrollTop: '0px'}, 500);
 			}
 		    if($(this).attr("class")=="back"){
-				alert("back");
+				window.location.href="<?=$base?>/admin/frame/cmsmng.php?action=bookIntro";
 			}
 		    if($(this).attr("class")=="reset"){
 				alert("reset");
@@ -160,6 +160,10 @@ function formatHTML($str){
 				var nrjs=getContent("nrjsEditor");
 				var zyzj=getContent("zyzjEditor");
 				var jczy=getContent("jczyEditor");
+				if(zjtj.length>4000000||nrjs.length>4000000||zyzj.length>4000000||jczy.length>4000000){
+					alert("内容超过字数限制，请重新编辑后提交。");
+					return false;
+				}
 				$.ajax({
 					type: 'POST',
 					url: "saveBook.php",

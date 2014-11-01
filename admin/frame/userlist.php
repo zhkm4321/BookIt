@@ -98,6 +98,9 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <script type="text/javascript">
 listTotalPage=<?=$listTotalPage?>;
 </script>
+<div class="form_head">
+	<a href="javascript:void(0);" class="add_user">添加用户</a><a href="javascript:void(0);" class="del_user">删除选中</a>
+</div>
 <div class="pic_list">
 	<table cellspacing="0" cellpadding="0" border="0" class="pic_tab">
 		<tbody>
@@ -125,7 +128,7 @@ listTotalPage=<?=$listTotalPage?>;
 					echo "<td>".date('Y-m-d',$userArr[$i]->lastLogin)."</td>";
 					echo "<td>".date('Y-m-d',$userArr[$i]->regDate)."</td>";
 					echo "<td>".$userArr[$i]->regIp."</td>";
-					echo "<td style='width: 50px;'><a href='javascript:delOrder(".$userArr[$i]->id.");'>删除</a></td>";
+					echo "<td style='width: 50px;'><a href='javascript:delUser(".$userArr[$i]->id.");'>删除</a></td>";
 					echo "</tr>";
 				}
 			?>

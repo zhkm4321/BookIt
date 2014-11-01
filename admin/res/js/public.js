@@ -31,8 +31,8 @@ function GetRequest() {
 }
 function allCheck(obj) {
     if ($(obj).is(':checked')) {
-	$("[name=ids]:checkbox").attr("checked", true);
+	$("input[name=ids]").attr("checked", true);
     }else{
-	$("[name=ids]:checkbox").attr("checked", false);
+	$("input[name=ids]").removeAttr("checked");
     }
 }

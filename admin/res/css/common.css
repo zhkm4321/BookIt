@@ -9,7 +9,7 @@
  ************************************/
 .form_head{
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	padding-top: 10px;
 }
 .form_head .title_h2{
@@ -21,12 +21,24 @@
 }
 .form_head .select_pic{
 	float:left;
-	width:70px;
-	font: 700 14px/40px "Microsoft YaHei";
+	width:80px;
+	font: 14px/35px "Microsoft YaHei";
 	color:#fff;
-	height:40px;
+	height:35px;
 	background:#1b91dc;
 	text-align:center;
+	margin: 3px 10px 0 0;
+}
+.form_head a.add_user,.form_head a.del_user{
+	float:left;
+	width:80px;
+	font: 14px/35px "Microsoft YaHei";
+	color:#fff;
+	height:35px;
+	background:#1b91dc;
+	text-align:center;
+	margin-right: 10px;
+	text-decoration: none;
 }
 
 .pic_list{
