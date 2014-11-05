@@ -18,15 +18,16 @@ if(!isset($user)){
 		<title><?=$siteName?> - 后台管理</title>
 		<link rel="stylesheet" type="text/css" href="<?=$base?>/admin/res/css/reset.css" media="all" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/public.css" type="text/css" rel="stylesheet" />
-		<link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />	
+		<link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
-		<script src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+		<script src="<?=$jquery?>" type="text/javascript"></script>
+		<script src="<?=$base?>/thirdparty/thickbox/jquery.artwl.thickbox.js" type="text/javascript"></script>
 		<script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 		<script src="<?=$base?>/admin/res/js/usermng.js" type="text/javascript"></script>
 		<!-- 图标列表查询相关js -->
 		<script type="text/javascript">
 		  $(function() {
-		    queryForUserList(null,'reg_date',1,15);//获取行业分类列表
+		    queryForUserList(null,'reg_date',1,15);//获取列表
 		    $('#left_con').css("width", "0px");
 		    $('#right_con').css("margin-left","0px");
 		    $('#left_con').show();
@@ -58,7 +59,7 @@ if(!isset($user)){
 			</div>
 			<div class="right_con" id="right_con">
 				<div class="r_con" id="list_con">
-					
+
 				</div>
 			</div>
 		</div>

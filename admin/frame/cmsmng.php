@@ -20,7 +20,7 @@ if (! isset ( $user )) {
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?=$base?>/thirdparty/webuploader015/css/webuploader.css" type="text/css" media="all" />
-<script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="<?=$jquery?>" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/cmsmng.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -52,7 +52,7 @@ var BASE='<?=$base?>';
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 			?>
 				<li class="noselect"><span action="<?=$row['path'] ?>"><?=$row["model_name"] ?></span></li>
-			<?php 
+			<?php
 			}
 			?>
 			</ul>

@@ -8,9 +8,9 @@ session_start();
 <title><?=$siteName?> - 后台登陆</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<?=$base?>/admin/res/css/public_index.css" type="text/css" rel="stylesheet" />
-<script src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script src="<?=$jquery?>" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/login_page.js" type="text/javascript"></script>
-<?php 
+<?php
 if(isset($_SESSION['msg'])){
 ?>
 <script type="text/javascript">
@@ -32,7 +32,7 @@ $(function(){
             </div>
         	<div class="dl_k">
             	<img src="<?=$base?>/admin/res/images/lock.gif" class="lock" />
-                <input id="password" name="password" type="text" class="login_input" value='请输入密码' onblur="tryPasswordSet(this,'请输入密码');" onfocus="tryPasswordClear(this,'请输入密码');" />
+                <input id="password" name="password" type="text" class="login_input" value='请输入密码' onfocus="trySetPassword(this);" />
             </div>
             <div class="msg_box" id="msg"></div>
            	<input type="submit" class="dl_but" name="submit" value=""/>

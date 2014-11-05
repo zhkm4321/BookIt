@@ -29,7 +29,7 @@
 	text-align:center;
 	margin: 3px 10px 0 0;
 }
-.form_head a.add_user,.form_head a.del_user{
+.form_head a.add_user,.form_head a.del_user,.form_head a.del_order{
 	float:left;
 	width:80px;
 	font: 14px/35px "Microsoft YaHei";
@@ -102,7 +102,7 @@
 	display: block;
 	margin:10px 0px;
 	width:100px;
-	height:71px; 
+	height:71px;
 }
 .toolbar ul li a:LINK,.toolbar ul li a:VISITED{
 	display: block;
@@ -133,6 +133,38 @@
 }
 .toolbar ul li a.back:HOVER {
 	background: url(../images/back_hover.jpg) no-repeat;
+}
+/*------------添加用户弹出层------------------*/
+#artwl_showbox{
+	width:450px;
+}
+#artwl_title{
+	font: 700 16px/30px "Microsoft YaHei";
+}
+#artwl_message table{
+	margin:0px 20px 0 20px;
+}
+#artwl_message table tr td{
+	font: 16px/30px "Microsoft YaHei";
+	height: 30px;
+}
+#artwl_message table tr td input{
+	width:150px;
+	margin-left: 10px;
+	padding-left: 5px;
+	height: 25px;
+	font: 16px/25px "Microsoft YaHei";
+	border: 1px solid #d3d3d3;
+}
+#artwl_message table tr td .msg{
+	padding-left: 20px;
+}
+#artwl_message table tr td .addBtn{
+	height:30px;
+	width: 100px;
+	text-align: center;
+	margin-top:10px;
+	cursor: pointer;
 }
 /*--------------------  footer  --------------------*/
 /*----------------  2    ---------------- */

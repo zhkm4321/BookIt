@@ -14,7 +14,7 @@ $user=$_SESSION['user'];
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>input</title>
-<script type="text/javascript" src="/res/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="<?=$jquery?>"></script>
 <script type="text/javascript">
 function checkReceive(){
 	if(!isChinese($("input[name='realname']").val())){
@@ -33,12 +33,12 @@ function checkReceive(){
 	}
 	return true;
 }
-function isChinese(temp){  
-	var re=/[^\u4e00-\u9fa5]/;  
+function isChinese(temp){
+	var re=/[^\u4e00-\u9fa5]/;
 	if(re.test(temp)){
-		return false; 
+		return false;
 	}
-	return true;  
+	return true;
 }
 </script>
 </head>

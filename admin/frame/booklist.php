@@ -94,13 +94,15 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <script type="text/javascript">
 listTotalPage=<?=$listTotalPage?>;
 </script>
+<div class="form_head">
+	<a href="javascript:void(0);" class="del_order">删除选中</a>
+</div>
 <div class="pic_list">
 	<table cellspacing="0" cellpadding="0" border="0" class="pic_tab">
 		<tbody>
 			<tr class="head_tr">
-				<th style="width: 70px;"><input type="checkbox"
-					style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all">
-				&nbsp; <label style="cursor: pointer;" for="all"> 订单编号 </label></th>
+				<th style="width: 30px;"><input type="checkbox" style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all"></th>
+				<th style="width: 70px;"><label style="cursor: pointer;" for="all">订单号</label></th>
 			    <th>姓名</th>
 			    <th>单位</th>
 			    <th>职位</th>
@@ -111,10 +113,11 @@ listTotalPage=<?=$listTotalPage?>;
 			    <th>书名</th>
 			    <th>操作</th>
 			</tr>
-			<?php 
+			<?php
 				for ($i=0;$i<sizeof($orderArr);$i++){
 					echo "<tr>";
-					echo "<td style='width: 70px;'><input type='checkbox' value='".$orderArr[$i]->id."' name='ids'>&nbsp;".$orderArr[$i]->id."</td>";
+					echo "<td><input type='checkbox' value='".$orderArr[$i]->id."' name='ids' uid='".$orderArr[$i]->id."'></td>";
+					echo "<td style='width: 70px;'>".$orderArr[$i]->id."</td>";
 					echo "<td>".$orderArr[$i]->realname."</td>";
 					echo "<td>".$orderArr[$i]->organ."</td>";
 					echo "<td>".$orderArr[$i]->position."</td>";
@@ -134,7 +137,7 @@ listTotalPage=<?=$listTotalPage?>;
 		<?php if($listPageNo!=1){?>
 		<a id="prePage" class="pre" href="javascript:void(0);">上一页</a>
 		<?php }?>
-		<?php 
+		<?php
 		$range=3;//显示当前页码左右范围页码
 		if($listPageNo-$range<=2){
 			$max=$listPageNo+$range>$listTotalPage?$listTotalPage:$listPageNo+$range;

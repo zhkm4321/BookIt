@@ -18,9 +18,9 @@ if(!isset($user)){
 		<title><?=$siteName?> - 后台管理</title>
 		<link rel="stylesheet" type="text/css" href="<?=$base?>/admin/res/css/reset.css" media="all" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/public.css" type="text/css" rel="stylesheet" />
-		<link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />	
+		<link rel="stylesheet" href="<?=$base?>/admin/res/css/global.css" type="text/css" media="all" />
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
-		<script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+		<script src="<?=$jquery?>" type="text/javascript"></script>
 		<script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 		<script src="<?=$base?>/admin/res/js/bookmng.js" type="text/javascript"></script>
 		<!-- 图标列表查询相关js -->
@@ -58,7 +58,7 @@ if(!isset($user)){
 			</div>
 			<div class="right_con" id="right_con">
 				<div class="r_con" id="list_con">
-					
+
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=book', 'root', 'root');
+$dbh = new PDO($opt->dbUrl, $opt->dbUser, $opt->dbPass);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $dbh->exec('set names utf8');
 if(empty($dbh))

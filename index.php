@@ -153,7 +153,7 @@ if(isset($_SESSION["user"])){
 		</div>
 		</form>
 	</div>
-	<script type="text/javascript" src="<?=$base ?>/res/javascrips/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="<?=$jquery?>"></script>
 	<script type="text/javascript" src="<?=$base ?>/res/javascrips/banner.min.js"></script>
 	<script type="text/javascript" src="<?=$base ?>/res/javascrips/global.js"></script>
 	<script type="text/javascript">
@@ -172,7 +172,7 @@ if(isset($_SESSION["user"])){
 			isVertical:false,
 			isFullScreen:true,
 			callBack : function(index){
-				
+
 				},
 			handleContain:".d_btn"
 		});

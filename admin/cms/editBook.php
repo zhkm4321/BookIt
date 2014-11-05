@@ -42,7 +42,7 @@ function formatHTML($str){
 <title>完整demo</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
-<script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="<?=$jquery?>" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="<?=$base?>/thirdparty/ueditor1_4_3/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?=$base?>/thirdparty/ueditor1_4_3/ueditor.all-min.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
@@ -78,10 +78,10 @@ function formatHTML($str){
     //实例化编辑器
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
     var zjtjEditor = UE.getEditor('zjtjEditor',{
-		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline', 
-				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset', 
-				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist', 
-				'insertunorderedlist', 'cleardoc','lineheight', 
+		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline',
+				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset',
+				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist',
+				'insertunorderedlist', 'cleardoc','lineheight',
 				'paragraph'],
 				['simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'pagebreak', 'template', 'background', '|',
 			            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
@@ -94,10 +94,10 @@ function formatHTML($str){
 		  	    ["三号",21],["小二",24],["二号",29],["小一",32],["一号",34],["小初",48],["初号",56]]
 	});
     var nrjsEditor = UE.getEditor('nrjsEditor',{
-		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline', 
-				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset', 
-				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist', 
-				'insertunorderedlist', 'cleardoc','lineheight', 
+		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline',
+				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset',
+				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist',
+				'insertunorderedlist', 'cleardoc','lineheight',
 				'paragraph'],
 				['simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'pagebreak', 'template', 'background', '|',
 			            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
@@ -110,10 +110,10 @@ function formatHTML($str){
 		  	    ["三号",21],["小二",24],["二号",29],["小一",32],["一号",34],["小初",48],["初号",56]]
 	});
 	    var zyzjEditor = UE.getEditor('zyzjEditor',{
-		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline', 
-				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset', 
-				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist', 
-				'insertunorderedlist', 'cleardoc','lineheight', 
+		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline',
+				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset',
+				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist',
+				'insertunorderedlist', 'cleardoc','lineheight',
 				'paragraph'],
 				['simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'pagebreak', 'template', 'background', '|',
 			            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
@@ -126,10 +126,10 @@ function formatHTML($str){
 		  	    ["三号",21],["小二",24],["二号",29],["小一",32],["一号",34],["小初",48],["初号",56]]
 	});
 	    var jczyEditor = UE.getEditor('jczyEditor',{
-		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline', 
-				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset', 
-				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist', 
-				'insertunorderedlist', 'cleardoc','lineheight', 
+		"toolbars": [['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline',
+				'fontborder', 'strikethrough', 'removeformat', 'formatmatch', 'autotypeset',
+				'blockquote', 'pasteplain', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'forecolor', 'backcolor', 'insertorderedlist',
+				'insertunorderedlist', 'cleardoc','lineheight',
 				'paragraph'],
 				['simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'pagebreak', 'template', 'background', '|',
 			            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
@@ -153,7 +153,10 @@ function formatHTML($str){
 				window.location.href="<?=$base?>/admin/frame/cmsmng.php?action=bookIntro";
 			}
 		    if($(this).attr("class")=="reset"){
-				alert("reset");
+				UE.getEditor('zjtjEditor').setContent('<?=$book->zjtj ?>');
+				UE.getEditor('jczyEditor').setContent('<?=$book->jczy ?>');
+				UE.getEditor('nrjsEditor').setContent('<?=$book->nrjs ?>');
+				UE.getEditor('zyzjEditor').setContent('<?=$book->zyzj ?>');
 			}
 			if($(this).attr("class")=="save"){
 			    var zjtj=getContent("zjtjEditor");

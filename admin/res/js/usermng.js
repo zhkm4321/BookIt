@@ -27,18 +27,23 @@ function queryForUserList(level, orderBy, pageNo, pageSize) {
 	},
 	success : function(data) {
 	    $("#list_con").html(data);
-	    $(".add_user").on("click", function(event) {
-		alert("来找我吧");
-	    });
-	    $(".del_user").on(
-		    "click",
-		    function(event) {
-			alert($("input:checked").length);
-			$("[name=ids]:checkbox").find("input:checked").each(
-				function(n, i) {
-				    alert(n + "  " + i);
-				});
-		    });
+	    $(".del_user").on("click",function(event) {
+		    var Arr="";
+			$("[name=ids]").each(function(i,n) {
+			    if($(n).is(":checked")){
+					Arr+=$(n).attr("uid")+',';
+			    }
+			});
+			if(Arr==""){
+				alert("请选择删除项");
+				return;
+			}
+			delUser(Arr.substring(0,Arr.length-1));
+		});
+		//绑定添加用户弹出层事件
+		$.artwl_bind({ showbtnid: ".add_user", title: "添加用户", content: "#addUserBox"});
+		debugger;
+		$.artwl_close({ callback: queryForUserList(listLevel, listOrderBy, 1, listPageSize)});
 	    $(".page_nr a").on(
 		    "click",
 		    function(event) {
@@ -63,19 +68,21 @@ function queryForUserList(level, orderBy, pageNo, pageSize) {
 				    listPageNo, listPageSize);
 			}
 			event.preventDefault();
-		    });
-	    $("input[name=ids]").click(function() {
-		rowCount = $("table tr").length - 1;
-		if (checkedCount("ids") == rowCount) {
-		    if (!$("input[name=all").is(":checked")) {
-			$("input[name=all").attr("checked", true);
-		    }
-		} else {
-		    if ($("input[name=all").is(":checked")) {
-			$("input[name=all").removeAttr("checked");
-		    }
-		}
-	    });
+		});
+		$(".addBtn").click(function(){
+			$.ajax({
+               type: "POST",
+               dataType: "html",
+               url: "/admin/service/addUser.php",
+               data: $("#addUserForm").serialize(),
+               success: function (data) {
+					$("#artwl_close").click();
+               },
+               error: function(data) {
+                   alert("error:"+data.responseText);
+               }
+           });
+		});
 	},
 	dataType : "html"
     });
@@ -85,15 +92,9 @@ function delUser(uid) {
     var url = "/admin/service/delUser.php";
     var data = null;
     if (isNaN(uid)) {
-	url += "?action=delAll";
-	data = {
-	    "Arr" : uid
-	};
+		data = {Arr : uid,action:"delAll"};
     } else {
-	url += "?action=one";
-	data = {
-	    "Uid" : uid
-	};
+		data = {Uid : uid,action:"one"};
     }
     $.ajax({
 	type : 'POST',
@@ -101,9 +102,9 @@ function delUser(uid) {
 	data : data,
 	success : function(data) {
 	    if (data = "TRUE") {
-		window.location.reload();
+			window.location.reload();
 	    } else {
-		alert("删除失败");
+			alert("删除失败");
 	    }
 	},
 	dataType : "text"

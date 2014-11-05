@@ -105,9 +105,8 @@ listTotalPage=<?=$listTotalPage?>;
 	<table cellspacing="0" cellpadding="0" border="0" class="pic_tab">
 		<tbody>
 			<tr class="head_tr">
-				<th style="width: 70px;"><input type="checkbox"
-					style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all">
-				&nbsp; <label style="cursor: pointer;" for="all"> ID </label></th>
+				<th style="width: 30px;"><input type="checkbox" style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all"></th>
+				<th style="width: 70px;"><label style="cursor: pointer;" for="all"> ID </label></th>
 			    <th>用户名</th>
 			    <th>姓名</th>
 			    <th>单位</th>
@@ -117,14 +116,19 @@ listTotalPage=<?=$listTotalPage?>;
 			    <th>注册IP</th>
 			    <th>操作</th>
 			</tr>
-			<?php 
+			<?php
 				for ($i=0;$i<sizeof($userArr);$i++){
 					echo "<tr>";
-					echo "<td style='width: 70px;'><input type='checkbox' value='".$userArr[$i]->id."' name='ids'>&nbsp;".$userArr[$i]->id."</td>";
+					echo "<td><input type='checkbox' value='".$userArr[$i]->id."' name='ids' uid='".$userArr[$i]->id."'></td>";
+					echo "<td style='width: 70px;'>".$userArr[$i]->id."</td>";
 					echo "<td>".$userArr[$i]->username."</td>";
 					echo "<td>".$userArr[$i]->realname."</td>";
 					echo "<td>".$userArr[$i]->organ."</td>";
-					echo "<td><img src='".$userArr[$i]->sculpture."' alt='暂无'/></td>";
+					if($userArr[$i]->sculpture==NULL){
+						echo "<td><img src='/admin/res/images/nosculpture.gif' alt='暂无'/></td>";
+					}else{
+						echo "<td><img src='".$userArr[$i]->sculpture."' alt='暂无'/></td>";
+					}
 					echo "<td>".date('Y-m-d',$userArr[$i]->lastLogin)."</td>";
 					echo "<td>".date('Y-m-d',$userArr[$i]->regDate)."</td>";
 					echo "<td>".$userArr[$i]->regIp."</td>";
@@ -139,7 +143,7 @@ listTotalPage=<?=$listTotalPage?>;
 		<?php if($listPageNo!=1){?>
 		<a id="prePage" class="pre" href="javascript:void(0);">上一页</a>
 		<?php }?>
-		<?php 
+		<?php
 		$range=3;//显示当前页码左右范围页码
 		if($listPageNo-$range<=2){
 			$max=$listPageNo+$range>$listTotalPage?$listTotalPage:$listPageNo+$range;
@@ -193,4 +197,36 @@ listTotalPage=<?=$listTotalPage?>;
 		<?php }?>
 		</div>
 	</div>
+</div>
+<div id="addUserBox" class="addUserBox">
+<form enctype="multipart/form-data"; method="post" action="reg.php" id="addUserForm">
+	<table>
+		<tr>
+			<td width="70"><label for="username" class="label">邮箱</label></td>
+			<td width="150"><input id="username" name="username" type="text" class="input" /></td>
+			<td width="200"><span class="msg">用户名必须是邮箱</span></td>
+		</tr>
+		<tr>
+			<td><label for="password" class="label">密码</label></td>
+			<td><input id="password" name="password" type="password" class="input" /></td>
+			<td><span class="msg"></span></td>
+		</tr>
+		<tr>
+			<td><label for="realname" class="label">姓名</label></td>
+			<td><input id="realname" name="realname" type="text" class="input" /></td>
+			<td><span class="msg">请填写真实姓名</span></td>
+		</tr>
+		<tr>
+			<td><label for="organ" class="label">单位</label></td>
+			<td><input id="organ" name="organ" type="text" class="input" /></td>
+			<td><span class="msg"></span></td>
+		</tr>
+		<tr>
+			<td><label for="sculpture" class="label">头像</label></td>
+			<td><input id="sculpture" name="sculpture" type="file" class="input"/></td>
+			<td><span class="msg">大小不要超过2M</span></td>
+		</tr>
+		<tr height="40"><td colspan="3" align="center"><input type="buttom" name="submit" value="注册" class="addBtn" /></td></tr>
+	</table>
+</form>
 </div>
