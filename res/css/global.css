@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+		background:#f2f2f2;
+	}
+
+/*---头部样式 begin------*/
+
+.head {
+		position:absolute;
+		width:100%;
+		min-width:1000px;
+		min-height:87px;
+		z-index:999;
+	}
+	
+.head_td {
+		width:100%;
+		height:141px;
+	}
+	
+.head_td .td_bg {
+		background:url(../images/head_bg.png) repeat-x 0 0;
+	}
+	
+.head_td .td_logo {
+		background:url(../images/logo.png) repeat-x 0 0;
+	}
+	
+.head_title {
+		position:absolute;
+		top:0px;
+		left:0px;
+		height:80px;
+		float:left;
+		padding-left:25px;
+		color:#fff;
+		font:24px/80px 'microsoft yahei';
+		background:url(../images/head_l.png) no-repeat right 0;
+	}
+	
+.head_cz {
+		position:absolute;
+		top:0px;
+		right:0px;
+		height:50px;
+		float:right;
+		padding-right:25px;
+		padding-top:30px;
+		color:#fff;
+		background:url(../images/head_r.png) no-repeat 0 0;
+	}
+	
+.head_cz a {
+		float:left;
+		color:#fff;
+		font:12px/20px 'simsun';
+		display:inline-block;
+		margin-left:10px;
+		padding:0px 4px 0px 22px;
+		background-position:4px center;
+		background-repeat:no-repeat;
+	}
+	
+.head_cz a:hover {
+		background-color:#2577d2;
+		text-decoration:none;
+	}
+	
+a.dl {
+		background-image:url(../images/person.gif);
+	}
+.head_cz a.dc{
+		margin-left: 5px;
+	}
+	
+a.home {
+		background-image:url(../images/home.gif);
+	}
+	
+a.about {
+		background-image:url(../images/about.gif);
+	}
+	
+/*----首页内容-----*/
+	
+.content {
+		padding-top:80px;
+		width:100%;
+		min-width:1000px;
+	}
+
+/*-------底部文件-------*/
+
+.foot_link {
+		width:100%;
+		min-width:1000px;
+		height:240px;
+		clear:both;
+		background:#444 url(../images/foot_bg.gif) repeat-x 0 0;
+	}
+	
+.link_con {
+		width:1000px;
+		margin:0px auto;
+	}
+	
+.con_li {
+		width:200px;
+		float:left;
+		margin:45px 0px 0px 48px;
+		display:inline;
+	}
+	
+.con_li h4 {
+		color:#999999;
+		font:18px/30px 'microsoft yahei';
+	}
+	
+.con_li p {
+		color:#fff;
+		font:14px/24px 'microsoft yahei';
+		margin-top:15px;
+	}
+	
+.con_li p a {
+		display:block;
+		color:#fff;
+	}
+	
+.con_li p.p_r {
+		padding-left:40px;
+	}
+	
+.con_web {
+		float:right;
+		width:111px;
+		height:111px;
+		margin:50px 44px 0px 0px;
+		display:inline;
+		color:#fff;
+		font:14px/25px 'microsoft yahei';
+		text-align:center;
+	}
+	
+.foot_word {
+		width:100%;
+		min-width:1000px;
+		height:40px;
+		background:#333333;
+		color:#fff;
+		text-align:center;
+		font:14px/40px 'microsoft yahei';
+	}
