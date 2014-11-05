@@ -18,7 +18,7 @@ function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 	listPageSize=pageSize;
 	$.ajax({
 		type: 'POST',
-		url: "/admin/frame/booklist.php",
+		url: "/admin/frame/orderlist.php",
 		data: {bookId:bookId,orderBy:orderBy,pageNo:pageNo,pageSize:pageSize},
 		success: function(data){
 			$("#list_con").html(data);
@@ -26,18 +26,18 @@ function queryForOrderList(bookId,orderBy,pageNo,pageSize) {
 				alert("来找我吧");
 		    });
 		    $(".del_order").on("click",function(event) {
-			    var Arr="";
-				$("[name=ids]").each(function(i,n) {
-				    if($(n).is(":checked")){
-						Arr+=$(n).attr("uid")+',';
-				    }
-				});
-				if(Arr==""){
-					alert("请选择删除项");
-					return;
-				}
-				delOrder(Arr.substring(0,Arr.length-1));
+			var Arr="";
+			$("[name=ids]").each(function(i,n) {
+			    if($(n).is(":checked")){
+				Arr+=$(n).attr("uid")+',';
+			    }
 			});
+			if(Arr==""){
+				alert("请选择删除项");
+				return;
+			}
+			delOrder(Arr.substring(0,Arr.length-1));
+		    });
 			$(".page_nr a").on("click",function(event){
 				var con=$(this).html();
 				var pageNo=0;

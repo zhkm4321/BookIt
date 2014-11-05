@@ -1,7 +1,15 @@
-<?php
+<?php 
 include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
-//session_start (); // !注意要放在类定义之后
-
+if($_SERVER['REQUEST_METHOD']=="GET"){
+?>
+	<script type="text/javascript">
+	$(function(){
+	    queryForBookList(1, 15);
+	})
+	</script>
+<?php
+}else{
+include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
 $DEFINE_PAGESIZE=15;
 $bookArr [] = NULL; // 存放书籍列表
 
@@ -9,9 +17,11 @@ $listPageSize = NULL;
 $listPageSize = NULL;
 $listTotalSize = NULL;
 $listTotalPage = NULL;
-if (isset ( $_POST ['pageNo'] )) {
+if(isset($_POST ["pageNo"])){
 	// 获取列表当前页码
-	$listPageNo = $_POST ['pageNo'];
+	$listPageNo = $_POST ["pageNo"];
+}
+if(isset($_POST ['pageSize'])){
 	// 获取列表页数
 	$listPageSize = $_POST ['pageSize'];
 }
@@ -48,30 +58,17 @@ if ($listTotalSize % $listPageSize != 0) {
 $first = ($listPageNo - 1) * $listPageSize;
 $offset = $listPageSize;
 ?>
-<script type="text/javascript">
-var listPageNo=<?=$_SESSION ['pageNo'] ?>;
-var listPageSize=<?=$_SESSION ['pageSize'] ?>;
-var listTotalPage=<?=$listTotalPage ?>;
-function queryForBookList(pageNo,pageSize) {
-	listPageNo=pageNo;
-	listPageSize=pageSize;
-	$.ajax({
-		type: 'POST',
-		url: "/admin/cms/bookIntro.php",
-		data: {pageNo:pageNo,pageSize:pageSize},
-		success: function(data){
-			$("#list_con").html(data);
-		},
-		dataType: "html"
-	});
-}
-</script>
+<div class="form_head">
+	<a href="javascript:void(0);" class="add_book">新增书籍</a><a href="javascript:void(0);" class="del_book">删除选中</a>
+</div>
 <div class="pic_list">
 	<table cellspacing="0" cellpadding="0" border="0" class="pic_tab">
 		<tbody>
 			<tr class="head_tr">
-				<th style="width: 60px;"><input type="checkbox" style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all"> &nbsp; <label
-					style="cursor: pointer;" for="all"> ID </label></th>
+				<th style="width: 30px;">
+					<input type="checkbox" style="cursor: pointer;" onclick="allCheck(this)" id="all" name="all">
+				</th>
+				<th style="width: 60px;"><label style="cursor: pointer;" for="all">ID</label></th>
 				<th>书名</th>
 				<th>作者</th>
 				<th style='width: 80px;'>操作</th>
@@ -84,7 +81,8 @@ function queryForBookList(pageNo,pageSize) {
 			}
 			for($i = $first; $i < $max; $i ++) {
 				echo "<tr>";
-				echo "<td><input type='checkbox' value='" . $bookArr [$i]->id . "' name='ids'>&nbsp;" . $bookArr [$i]->id . "</td>";
+				echo "<td><input type='checkbox' value='".$bookArr [$i]->id."' name='ids' uid='".$bookArr[$i]->id."'></td>";
+				echo "<td>".$bookArr [$i]->id . "</td>";
 				echo "<td>" . $bookArr [$i]->name . "</td>";
 				echo "<td>" . $bookArr [$i]->author . "</td>";
 				echo "<td><a href='javascript:delBook(".$bookArr [$i]->id.");'>删除</a>&nbsp;".
@@ -154,28 +152,21 @@ function queryForBookList(pageNo,pageSize) {
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-$(function(){		
-	$(".page_nr a").on("click", function(event) {
-		var con = $(this).html();
-		var pageNo = 0;
-		if (pageNo = parseInt(con)) {
-		    queryForBookList(pageNo, listPageSize);
-		} else {
-		    if ($(this).attr("id") == "nextPage") {
-			listPageNo++;
-		    } else if ($(this).attr("id") == "prePage") {
-			listPageNo--;
-		    }
-		    if (listPageNo < 1) {
-			listPageNo = 1;
-		    }
-		    if (listPageNo > listTotalPage) {
-			listPageNo = listTotalPage;
-		    }
-		    queryForBookList(listPageNo, listPageSize);
-		}
-		event.preventDefault();
-	});
-});
-</script>
+<div id="addBookBox" class="addBookBox">
+<form enctype="multipart/form-data"; method="post" action="addBook.php" id="addBookForm">
+	<table>
+		<tr>
+			<td width="50"><label for="bookname" class="label">书名</label></td>
+			<td width="150"><input id="bookname" name="bookname" type="text" class="input" /></td>
+		</tr>
+		<tr>
+			<td><label for="author" class="label">作者</label></td>
+			<td><input id="author" name="author" type="text" class="input" /></td>
+		</tr>
+		<tr height="40"><td colspan="3" align="center"><input type="buttom" name="submit" value="新增并编辑" class="addBtn" /></td></tr>
+	</table>
+</form>
+</div>
+<?php 
+}
+?>

@@ -47,7 +47,7 @@ if(!isset($user)){
 						<a href="<?=$base?>/admin/frame/cmsmng.php?action=indexMng">网站管理</a>
 					</li>
 					<li>
-						<a href="<?=$base?>/admin/frame/bookmng.php">预订管理</a>
+						<a href="<?=$base?>/admin/frame/ordermng.php">预订管理</a>
 					</li>
 					<li class="select">
 						<a href="<?=$base?>/admin/frame/usermng.php">用户管理</a>

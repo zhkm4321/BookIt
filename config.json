@@ -6,7 +6,7 @@
 	"base":"",												/* 网站的应用名 /bookit*/
 	"dbUrl":"mysql:host=localhost;dbname=bookit",					/* 数据库连接名 */
 	"dbUser":"root",												/* 数据库用户名 */
-	"dbPass":"",													/* 数据库密码 */
+	"dbPass":"root",													/* 数据库密码 */
 	"jquery":"http://libs.useso.com/js/jquery/1.8.3/jquery.min.js"	/* JQuery 库*/
 }
 

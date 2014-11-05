@@ -22,7 +22,7 @@ if(!isset($user)){
 		<link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
 		<script src="<?=$jquery?>" type="text/javascript"></script>
 		<script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
-		<script src="<?=$base?>/admin/res/js/bookmng.js" type="text/javascript"></script>
+		<script src="<?=$base?>/admin/res/js/ordermng.js" type="text/javascript"></script>
 		<!-- 图标列表查询相关js -->
 		<script type="text/javascript">
 		  $(function() {
@@ -46,7 +46,7 @@ if(!isset($user)){
 						<a href="<?=$base?>/admin/frame/cmsmng.php?action=indexMng">网站管理</a>
 					</li>
 					<li class="select">
-						<a href="<?=$base?>/admin/frame/bookmng.php">预订管理</a>
+						<a href="<?=$base?>/admin/frame/ordermng.php">预订管理</a>
 					</li>
 					<li>
 						<a href="<?=$base?>/admin/frame/usermng.php">用户管理</a>

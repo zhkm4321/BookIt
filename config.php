@@ -12,6 +12,7 @@
     include $_SERVER["DOCUMENT_ROOT"].'/common/order.php';
     include $_SERVER["DOCUMENT_ROOT"].'/common/model.php';
     include $_SERVER["DOCUMENT_ROOT"].'/common/picture.php';
+    include $_SERVER["DOCUMENT_ROOT"].'/common/employee.php';
     $jquery=$opt->jquery;
     unset($opt);
 ?>

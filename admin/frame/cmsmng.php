@@ -21,8 +21,10 @@ if (! isset ( $user )) {
 <link rel="stylesheet" href="<?=$base?>/admin/res/css/common.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?=$base?>/thirdparty/webuploader015/css/webuploader.css" type="text/css" media="all" />
 <script src="<?=$jquery?>" type="text/javascript"></script>
+<script src="<?=$base?>/thirdparty/thickbox/jquery.artwl.thickbox.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/cmsmng.js" type="text/javascript"></script>
+<script src="<?=$base?>/admin/res/js/bookIntroMng.js" type="text/javascript"></script>
 <script type="text/javascript">
 var BASE='<?=$base?>';
 </script>
@@ -37,7 +39,7 @@ var BASE='<?=$base?>';
 			</div>
 			<ul class="top_nav">
 				<li class="select"><a href="<?=$base?>/admin/frame/cmsmng.php?action=indexMng">网站管理</a></li>
-				<li><a href="<?=$base?>/admin/frame/bookmng.php">预订管理</a></li>
+				<li><a href="<?=$base?>/admin/frame/ordermng.php">预订管理</a></li>
 				<li><a href="<?=$base?>/admin/frame/usermng.php">用户管理</a></li>
 			</ul>
 		</div>
@@ -65,7 +67,7 @@ var BASE='<?=$base?>';
 					include $_SERVER ["DOCUMENT_ROOT"] . '/admin/cms/indexMng.php';
 				} elseif (@$_GET ['action'] == 'bookIntro') {
 					$_SESSION['CURRENT_MODEL']='2';
-					include $_SERVER ["DOCUMENT_ROOT"] . '/admin/cms/bookIntro.php';
+					include $_SERVER ["DOCUMENT_ROOT"] . '/admin/cms/bookIntroList.php';
 				} elseif (@$_GET ['action'] == 'authorTeam') {
 					$_SESSION['CURRENT_MODEL']='3';
 					include $_SERVER ["DOCUMENT_ROOT"] . '/admin/cms/authorTeam.php';

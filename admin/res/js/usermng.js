@@ -27,23 +27,28 @@ function queryForUserList(level, orderBy, pageNo, pageSize) {
 	},
 	success : function(data) {
 	    $("#list_con").html(data);
-	    $(".del_user").on("click",function(event) {
-		    var Arr="";
-			$("[name=ids]").each(function(i,n) {
-			    if($(n).is(":checked")){
-					Arr+=$(n).attr("uid")+',';
-			    }
-			});
-			if(Arr==""){
-				alert("请选择删除项");
-				return;
-			}
-			delUser(Arr.substring(0,Arr.length-1));
+	    $(".del_user").on("click", function(event) {
+		var Arr = "";
+		$("[name=ids]").each(function(i, n) {
+		    if ($(n).is(":checked")) {
+			Arr += $(n).attr("uid") + ',';
+		    }
 		});
-		//绑定添加用户弹出层事件
-		$.artwl_bind({ showbtnid: ".add_user", title: "添加用户", content: "#addUserBox"});
-		debugger;
-		$.artwl_close({ callback: queryForUserList(listLevel, listOrderBy, 1, listPageSize)});
+		if (Arr == "") {
+		    alert("请选择删除项");
+		    return;
+		}
+		delUser(Arr.substring(0, Arr.length - 1));
+	    });
+	    // 绑定添加用户弹出层事件
+	    $.artwl_bind({
+		showbtnid : ".add_user",
+		title : "添加用户",
+		content : "#addUserBox"
+	    });
+	    $("#artwl_close").on("click",function() {
+		queryForUserList(listLevel, listOrderBy, 1, listPageSize);
+	    });
 	    $(".page_nr a").on(
 		    "click",
 		    function(event) {
@@ -68,33 +73,38 @@ function queryForUserList(level, orderBy, pageNo, pageSize) {
 				    listPageNo, listPageSize);
 			}
 			event.preventDefault();
+		    });
+	    $(".addBtn").click(function() {
+		$.ajax({
+		    type : "POST",
+		    dataType : "html",
+		    url : "/admin/service/addUser.php",
+		    data : $("#addUserForm").serialize(),
+		    success : function(data) {
+			$("#artwl_close").click();
+		    },
+		    error : function(data) {
+			alert("error:" + data.responseText);
+		    }
 		});
-		$(".addBtn").click(function(){
-			$.ajax({
-               type: "POST",
-               dataType: "html",
-               url: "/admin/service/addUser.php",
-               data: $("#addUserForm").serialize(),
-               success: function (data) {
-					$("#artwl_close").click();
-               },
-               error: function(data) {
-                   alert("error:"+data.responseText);
-               }
-           });
-		});
+	    });
 	},
 	dataType : "html"
     });
 }
-
 function delUser(uid) {
     var url = "/admin/service/delUser.php";
     var data = null;
     if (isNaN(uid)) {
-		data = {Arr : uid,action:"delAll"};
+	data = {
+	    Arr : uid,
+	    action : "delAll"
+	};
     } else {
-		data = {Uid : uid,action:"one"};
+	data = {
+	    Uid : uid,
+	    action : "one"
+	};
     }
     $.ajax({
 	type : 'POST',
@@ -102,9 +112,9 @@ function delUser(uid) {
 	data : data,
 	success : function(data) {
 	    if (data = "TRUE") {
-			window.location.reload();
+		window.location.reload();
 	    } else {
-			alert("删除失败");
+		alert("删除失败");
 	    }
 	},
 	dataType : "text"

@@ -110,7 +110,7 @@ listTotalPage=<?=$listTotalPage?>;
 			    <th>用户名</th>
 			    <th>姓名</th>
 			    <th>单位</th>
-			    <th>头像</th>
+			    <!-- <th>头像</th>  -->
 			    <th>最后登录时间</th>
 			    <th>注册时间</th>
 			    <th>注册IP</th>
@@ -120,15 +120,17 @@ listTotalPage=<?=$listTotalPage?>;
 				for ($i=0;$i<sizeof($userArr);$i++){
 					echo "<tr>";
 					echo "<td><input type='checkbox' value='".$userArr[$i]->id."' name='ids' uid='".$userArr[$i]->id."'></td>";
-					echo "<td style='width: 70px;'>".$userArr[$i]->id."</td>";
+					echo "<td>".$userArr[$i]->id."</td>";
 					echo "<td>".$userArr[$i]->username."</td>";
 					echo "<td>".$userArr[$i]->realname."</td>";
 					echo "<td>".$userArr[$i]->organ."</td>";
+					/*
 					if($userArr[$i]->sculpture==NULL){
 						echo "<td><img src='/admin/res/images/nosculpture.gif' alt='暂无'/></td>";
 					}else{
 						echo "<td><img src='".$userArr[$i]->sculpture."' alt='暂无'/></td>";
 					}
+					*/
 					echo "<td>".date('Y-m-d',$userArr[$i]->lastLogin)."</td>";
 					echo "<td>".date('Y-m-d',$userArr[$i]->regDate)."</td>";
 					echo "<td>".$userArr[$i]->regIp."</td>";
@@ -221,11 +223,13 @@ listTotalPage=<?=$listTotalPage?>;
 			<td><input id="organ" name="organ" type="text" class="input" /></td>
 			<td><span class="msg"></span></td>
 		</tr>
+		<!-- 
 		<tr>
 			<td><label for="sculpture" class="label">头像</label></td>
 			<td><input id="sculpture" name="sculpture" type="file" class="input"/></td>
 			<td><span class="msg">大小不要超过2M</span></td>
 		</tr>
+		 -->
 		<tr height="40"><td colspan="3" align="center"><input type="buttom" name="submit" value="注册" class="addBtn" /></td></tr>
 	</table>
 </form>
