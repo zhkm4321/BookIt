@@ -2,20 +2,20 @@
 /* CSS Document */
 
 
-/*----图片轮播-----*/	
+/*----图片轮播-----*/
 
 .full_screen {
 		width:100%;
 		height:500px;
 		overflow:hidden;
 		z-index:1;
-	}	
+	}
 .js_fullscreen_banner {
 		position:relative;
 		width:100%;
 		height:500px;
 		overflow:hidden;
-	}	
+	}
 .js_fullscreen_banner .d_btn {
 		position:absolute;
 		top:0;
@@ -38,26 +38,26 @@
 		text-indent:-9999em;
 		cursor:pointer;
 		background:url(../images/icon_banner.png) 0 0 no-repeat;
-	}	
+	}
 .js_fullscreen_banner .d_btn .sp_pre {
 		left:0;
 		background-position:0 -78px;
-	}	
+	}
 .js_fullscreen_banner .d_btn .sp_next {
 		right:0;
 		background-position:0 0;
-	}	
+	}
 .js_fullscreen_banner .con  {
 		width:100%;
 		height:500px;
-	}	
+	}
 .js_fullscreen_banner .con  li{
 		width:100%;
 		height:500px;
 		text-align:center;
 	}
 .js_fullscreen_banner .con  .li_01 {
-		background-color:#d3d3d3;
+		background-color:#f2f2f2;
 	}
 
 .js_fullscreen_banner .con  li span {
@@ -69,23 +69,23 @@
 .pic_01 {
 		background:url(../images/ad.jpg) no-repeat center 0;
 	}
+
 .pic_02 {
 		background:url(../images/ad.jpg) no-repeat center 0;
 	}
+
 .pic_03 {
 		background:url(../images/ad.jpg) no-repeat center 0;
 	}
+
 .pic_04 {
-		background:url(../images/ad.jpg) no-repeat center 0;
-	}
-.pic_05 {
 		background:url(../images/ad.jpg) no-repeat center 0;
 	}
 
 .yd_book {
 		margin:400px 0px 0px 600px;
 	}
-	
+
 .js_fullscreen_banner  .index {
 		position:absolute;
 		bottom:13px;
@@ -95,7 +95,7 @@
 		width:960px;
 		padding-left:40px;
 		text-align:left;
-	}	
+	}
 .js_fullscreen_banner  .index  li {
 		display:inline;
 		padding:0 5px;
@@ -108,31 +108,31 @@
 		width:18px;
 		height:18px;
 		background:url(../images/li_normal.png) no-repeat center center;
-	}	
+	}
 .js_fullscreen_banner  .index .on a {
 		background:url(../images/li_current.png) no-repeat center center;
 	}
-	
+
 /*--图书详细描述接口--*/
 
 .sy_con {
 		width:1000px;
 		margin:0px auto;
 	}
-	
+
 .con_link {
 		padding:20px 0px 20px 30px;
 	}
-	
+
 .con_link a {
 		width:300px;
 		height:90px;
 		float:left;
 		margin:0px 8px;
 	}
-	
+
 /*--图片滚动--*/
-	
+
 .gd_images {
 		clear:both;
 		width:1000px;
@@ -140,9 +140,10 @@
 		float:left;
 		padding:10px 0px 25px 0px;
 		display:inline;
+		background:url(../images/gd_bg_02.gif) repeat-x 0 0;
 	}
-	
-a.btn_img { 
+
+a.btn_img {
 	   width:21px;
        height:38px;
 	   cursor:pointer;
@@ -150,26 +151,26 @@ a.btn_img {
 	   background-repeat:no-repeat;
 	   background-position:0 center;
    }
-   
+
 a.btn_img:hover {
 	   background-position:right center;
 	}
-   
+
 a.left_btn {
 		float:left;
 		margin-left:6px;
 		display:inline;
 		background-image:url(../images/left_btn.png);
 	}
-	
+
 a.right_btn {
 		float:right;
 		margin-right:6px;
 		display:inline;
 		background-image:url(../images/right_btn.png);
 	}
-   
-.mar_con{ 
+
+.mar_con{
        width:930px;
 	   float:left;
 	   overflow:hidden;
@@ -177,17 +178,17 @@ a.right_btn {
 	   margin-left:10px;
 	   display:inline;
 	}
-	
-#List1,#List2{ 
+
+#List1,#List2{
        float:left;
     }
-	
-.pic { 
+
+.pic {
        float:left;
 	   width:310px;
 	   text-align:left;
     }
-	
+
 .pic .pic_img {
 		width:112px;
 		height:112px;
@@ -203,25 +204,29 @@ a.right_btn {
 	   display:inline;
 	}
 
-.pic .pic_ms h3 {
+.pic .pic_ms h3 a:link,.pic .pic_ms h3 a:visited {
 		color:#333;
 		font:14px/20px 'microsoft yahei';
 		margin-top:5px;
+		text-decoration: none;
 	}
-	
+.pic .pic_ms h3 a:hover{
+		color:#1b91dc;
+	}
+
 .pic .pic_ms h4 {
 		color:#999;
 		font:12px/20px 'microsoft yahei';
 		margin-top:5px;
 	}
-	
+
 .pic .pic_ms p {
 		color:#666;
 		font:12px/18px 'microsoft yahei';
 		margin-top:5px;
 	}
-	
-/*------------------------------------------蒙灰 登录--------------------------------*/	
+
+/*------------------------------------------蒙灰 登录--------------------------------*/
 
 .menghui {
 	     width:100%;
@@ -236,7 +241,7 @@ a.right_btn {
 		 z-index:9999;
 		 display:none;
 	}
-	
+
 .iframe {
 	     filter:alpha(opacity=00);
 		 padding:0px;
@@ -266,7 +271,7 @@ a.right_btn {
 		height:80px;
 		position:relative;
 	}
-	
+
 .close {
 		position:absolute;
 		top:-30px;
@@ -283,18 +288,18 @@ a.right_btn {
 		letter-spacing:2px;
 		font-family:'microsoft yahei';
 	}
-	
+
 .dl_k {
 		width:270px;
 		margin:0px auto;
 	}
-	
+
 .dl_k h3 {
 		color:#666666;
 		font:18px/30px 'microsoft yahei';
 		margin-top:15px;
 	}
-	
+
 .dl_input {
 		width:250px;
 		height:30px;
@@ -305,26 +310,23 @@ a.right_btn {
 		padding:0px 10px;
 		margin-top:15px;
 	}
-	
+
 .dl_btn {
 		padding:15px 0px 30px 0px;
 		text-align:center;
 	}
-	
-.dl_btn input {
+
+.dl_btn a {
 		display:inline-block;
 		width:144px;
 		height:48px;
-		border:0;
-		padding:0 0 5px 0;
 		color:#fff;
-		cursor:pointer;
 		text-align:center;
-		font:24px/35px 'microsoft yahei';
+		font:24px/43px 'microsoft yahei';
 		background:url(../images/dl_btn.png) no-repeat 0 bottom;
 	}
-	
-.dl_btn input:hover {
+
+.dl_btn a:hover {
 		background-position:0 0;
 		text-decoration:none;
 	}
@@ -334,14 +336,12 @@ a.right_btn {
 		text-align:center;
 		font:14px/25px 'microsoft yahei';
 	}
-	
+
 .error {
 		height:20px;
 		font:12px/20px 'simsun';
 		color:#ff6600;
 		padding-top:10px;
 	}
-.error span{
-	display: none;
-}
-/*------------------------------------------蒙灰 登录--------------------------------*/	
+
+/*------------------------------------------蒙灰 登录--------------------------------*/

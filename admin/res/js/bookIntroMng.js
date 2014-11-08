@@ -43,7 +43,7 @@ function queryForBookList(pageNo, pageSize) {
 			    success : function(data) {
 				// $("#artwl_close").click();
 				if (parseInt(data)) {
-				    window.location.href = BASE + "/admin/cms/editBook.php?id=" + data;
+				    window.location.href = BASE + "/admin/service/editBook.php?id=" + data;
 				}
 			    },
 			    error : function(data) {

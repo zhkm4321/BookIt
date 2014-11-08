@@ -1,6 +1,5 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"].'/config.php';
-session_start();//!注意要放在类定义之后
 header("Content-Type:text/html;charset=UTF-8");
 //注销登录
 if(@$_GET['action']=='logout'){

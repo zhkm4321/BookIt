@@ -1,7 +1,6 @@
 <?php
 include $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
 include $_SERVER ["DOCUMENT_ROOT"] . '/common/PictureUtils.php';
-session_start (); // !注意要放在类定义之后
 $user = $_SESSION ['user'];
 if (! isset ( $user )) {
 	header ( "Location: /admin/login/index.php" );
@@ -10,7 +9,7 @@ if (! isset ( $user )) {
 /**
  * 生成随机文件名的
  *
- * @param unknown $l        	
+ * @param unknown $l
  * @return Ambigous <NULL, string>
  */
 function generate_name($l) {

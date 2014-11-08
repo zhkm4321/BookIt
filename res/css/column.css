@@ -11,7 +11,7 @@
 		z-index:999;
 		border-bottom:2px solid #257ed7;
 	}
-	
+
 .head_td {
 		width:100%;
 		height:77px;
@@ -20,31 +20,43 @@
 .head_td .td_bg {
 		background:url(../images/head_bg.png) repeat-x 0 0;
 	}
-	
+
 .head_td .td_logo {
 		background:url(../images/head_bg.png) repeat-x 0 0;
 	}
-	
+
 .head_title span {
 		font-size:36px;
 		display:inline-block;
 		padding-right:30px;
 	}
-	
+
 .column_con {
 		width:100%;
 		padding:20px 0px;
 	}
-	
+
 .con_td {
 		background:url(../images/con_bg_td.jpg) no-repeat center 0 ;
 	}
-	
+
+.con_hz {
+		background:url(../images/con_bg_hz.jpg) no-repeat center 0 ;
+	}
+
+.con_js {
+		background:url(../images/con_bg_js.jpg) no-repeat center 0 ;
+	}
+
+.con_wz {
+		background:url(../images/con_bg_wz.jpg) no-repeat center 0 ;
+	}
+
 .lum_content {
 		width:1000px;
 		margin:0px auto;
 	}
-	
+
 .lum_left {
 		width:198px;
 		min-height:478px;
@@ -52,16 +64,217 @@
 		border:1px solid #d8d8d8;
 		background:#fff;
 	}
-	
+
 .lum_right {
-		width:778px;
-		min-height:478px;
+		width:738px;
+		min-height:438px;
 		float:right;
 		border:1px solid #d8d8d8;
 		background:#fff;
+		padding:20px;
 	}
-	
+.lum_center{
+		width:100%;
+		margin:0 auto;
+		min-height:438px;
+		border:1px solid #d8d8d8;
+		background:#fff;
+		padding:20px;
+	}
+.con_hz .lum_left {
+		min-height:618px;
+	}
+
+.con_hz .lum_right {
+		min-height:578px;
+	}
+.con_hz .lum_center {
+		min-height:578px;
+	}
+.lum_center .row{
+		float: left;
+		width: 100%;
+	}
+.lum_center .row .book_item{
+		float: left;
+		width:200px;
+		border: 5px solid #d3d3d3;
+		margin: 20px
+	}
+.lum_center .row .book_item img{
+		float: left;
+		width: 180px;
+		height: 280px;
+		margin: 10px 0px 5px 10px;
+		border: 0;
+	}
+.lum_center .row .book_item h3{
+		float: left;
+		display: block;
+		width: 200px;
+		margin-bottom:5px;
+		text-align:center;
+	}
+.lum_center .row .book_item h3 a:link,.lum_center .book_item h3 a:visited{
+		font:16px/24px 'microsoft yahei';
+		color:#1b91dc;
+		text-decoration: none;
+	}
+.lum_center .row .book_item h3 a:hover{
+		color:#1b91dc;
+	}
 h3.fl_til {
 		color:#666666;
-		font:18px/20px 'microsoft yahei';
+		font:18px/30px 'microsoft yahei';
+		width:68%;
+		margin:0px auto;
+		padding-left:20px;
+		margin-top:8px;
+		background:url(../images/xpic.gif) no-repeat 0 center;
 	}
+
+.con_js h3.fl_til {
+		margin-top:20px;
+		cursor:pointer;
+	}
+
+h3.fl_current {
+		color:#2577d2;
+		background-image:url(../images/xpic_c.gif);
+	}
+
+.p_list {
+		width:75%;
+		margin:0px auto;
+		margin-top:8px;
+		padding-left:40px;
+	}
+
+.p_list a {
+		width:45%;
+		display:inline-block;
+		color:#a1a1a1;
+		font:14px/30px 'microsoft yahei';
+	}
+
+.con_hz .p_list a {
+		width:100%;
+	}
+
+.p_list a.current {
+		color:#2577d2;
+		text-decoration:none;
+	}
+
+h2.r_title {
+		color:#666666;
+		font:30px/30px 'microsoft yahei';
+		padding-bottom:20px;
+		text-align:center;
+		border-bottom:1px solid #cccccc;
+	}
+.l_title{
+		color:#666666;
+		font:30px/30px 'microsoft yahei';
+		padding-bottom:20px;
+		border-bottom:1px solid #cccccc;
+	}
+.td_infor {
+		padding-top:10px;
+	}
+.td_time{
+		width:500px;
+		padding-top:10px;
+		color:#666666;
+		margin: 0 auto;
+		text-align:center;
+		font:14px/30px 'microsoft yahei';
+	}
+.td_pic {
+		text-align:center;td_infor
+		padding:18px 0px 28px 0px;
+	}
+
+.td_infor p {
+		color:#666666;
+		font:14px/30px 'microsoft yahei';
+	}
+.td_infor p img{
+		max-width:960px; width:expression(this.width > 960 ? "960px" : this.width); height:auto
+	}
+.person_infor {
+		padding:20px 0px;
+	}
+
+.person_infor img.person {
+		width:190px;
+		height:240px;
+		float:left;
+	}
+
+.person_con {
+		padding-left:220px;
+	}
+
+.person_con .p_li {
+		width:100%;
+		float:left;
+	}
+
+.person_con .p_li h5 {
+		width:56px;
+		float:left;
+		color:#999999;
+		white-space:nowrap;
+		font:18px/36px 'microsoft yahei';
+	}
+
+.person_con .p_li span {
+		display:block;
+		padding-left:56px;
+		color:#333333;
+		font:18px/36px 'microsoft yahei';
+	}
+
+.td_infor h4 {
+		color:#333333;
+		font:18px/36px 'microsoft yahei';
+		padding:5px 0px;
+	}
+
+h3.dh_nav {
+		color:#333333;
+		font:18px/20px 'microsoft yahei';
+		padding-bottom:15px;
+		padding-left:5px;
+	}
+
+h3.dh_nav a {
+		color:#333333;
+	}
+
+h3.dh_nav a:hover {
+		color:#0066cc;
+	}
+
+.lum_con{
+		min-height:550px;
+		border:1px solid #d8d8d8;
+		background:#fff;
+		padding:20px;
+		margin: 0 auto;
+	}
+a.goTop{
+	position: fixed;
+	bottom:50px;
+	right:50px;
+	width:50px;
+	height:50px;
+	z-index:999;
+	background:url(../images/backtop.png) center center no-repeat;
+	text-decoration: none;
+	display: none;
+}
+a.goTop:hover{
+	background:url(../images/backtop_hover.png) center center no-repeat;
+}

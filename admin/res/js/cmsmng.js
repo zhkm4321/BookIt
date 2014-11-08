@@ -12,24 +12,6 @@ $(function() {
 		window.location.href = window.location.href.replace(param,
 			"?action=" + clickParam);
 	    });
-    /*-----------编写团队----------*/
-    $(document).on("click",function(e) {
-			var drag = $("#select_drop"), dragel = $("#select_drop")[0], target = e.target;
-			if (dragel !== target && !$.contains(dragel, target)) {
-			    if ($('#select_con').is(":visible")) {
-				$('#select_con').fadeOut(200);
-			    }
-			}else{
-			    $('#select_con').fadeIn(200);
-			}
-		    });
-    $("#select_con a").on("click",function(){
-	$("#input_text").html($(this).html());
-    });
-    function changediv(obj, m, n) {
-	document.getElementById(m).innerHTML = obj.innerHTML;
-	document.getElementById(n).style.display = "none";
-    }
 });
 
 /*******************************************************************************

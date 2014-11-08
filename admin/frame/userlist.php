@@ -1,6 +1,5 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"].'/config.php';
-session_start();
 unset($_SESSION['pageNo']);
 unset($_SESSION['pageSize']);
 unset($_SESSION['userLevel']);
@@ -192,7 +191,7 @@ listTotalPage=<?=$listTotalPage?>;
 			echo '<a class="num_normal" href="javascript:void(0);">'.$listTotalPage.'</a>';
 		}
 		?>
-		<?php if($listPageNo!=$listTotalPage){?>
+		<?php if($listPageNo!=$listTotalPage&&$listTotalPage>1){?>
 		<a id="nextPage" class="next" href="javascript:void(0);">下一页</a>
 		<?php }else{?>
 		<a class="btn_block" href="javascript:void(0);"></a>
@@ -223,7 +222,7 @@ listTotalPage=<?=$listTotalPage?>;
 			<td><input id="organ" name="organ" type="text" class="input" /></td>
 			<td><span class="msg"></span></td>
 		</tr>
-		<!-- 
+		<!--
 		<tr>
 			<td><label for="sculpture" class="label">头像</label></td>
 			<td><input id="sculpture" name="sculpture" type="file" class="input"/></td>

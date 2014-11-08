@@ -8,13 +8,14 @@ if ($row = $stmt->fetch ( PDO::FETCH_ASSOC )) {
 	$teamInfo = $row ["team_info"];
 }
 ?>
+<script src="<?=$base?>/admin/res/js/teamMng.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="<?=$base?>/thirdparty/ueditor1_4_3/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?=$base?>/thirdparty/ueditor1_4_3/ueditor.all-min.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8" src="<?=$base?>/thirdparty/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
 <div class="teamEditor">
-	<h2 class="h2_title">团队简介</h2>
+	<h2 class="h2_title">团队简介<input type="button" class="info_save" value="保存" /></h2>
 	<script id="teamEditor" type="text/plain">
 		<?=$teamInfo?>
 	</script>
@@ -43,9 +44,8 @@ if ($row = $stmt->fetch ( PDO::FETCH_ASSOC )) {
     }
 </script>
 <div class="teamEmployee">
-	<h2 class="h2_title">成员编辑</h2>
+	<h2 class="h2_title">人员编辑</h2>
 	<div class="emp_left">
-		<span class="emp_job">职务</span>
 		<div class="fd_select_gx">
 			<div id="input_text" class="input_text">选择一个职位</div>
 	        <span id="select_drop" class="select_drop"></span>
@@ -55,33 +55,47 @@ if ($row = $stmt->fetch ( PDO::FETCH_ASSOC )) {
 	            <a value="3" href="javascript:void(0)">策划编辑</a>
 	        </div>
 		</div>
-		<ul>
-			<li>王某某</li>
-			<li>王某某</li>
-			<li>王某某</li>
-		</ul>
+		<ul class="empList"></ul>
 	</div>
+	<form id="sculptureForm" enctype="multipart/form-data"; action="<?=$base ?>/admin/service/uploadSculpture.php" target="sculpture_form" method="post">
+	<input type="file" style="display: none;" name="sculpture" id="sculpture" onchange="uploadSculpture()"/>
+	</form>
 	<div class="emp_right">
+	<form id="employeeForm" >
 		<div class="person_infor">
-			<img src="/uploadfile/images/1414561953_anxuv.jpg" class="person">
+			<img src="/admin/res/images/sculpture.png" class="person">
+			<iframe name="sculpture_form" style="display: none;"></iframe>
+			
 			<div class="person_con">
 				<div class="p_li">
 					<h5>姓名：</h5>
-					<span>宋浩然</span>
+					<span><input name="realname" class="p_input"/></span>
 				</div>
 				<div class="p_li">
 					<h5>单位：</h5>
-					<span>单位名称文字</span>
+					<span><input name="organization" class="p_input"/></span>
 				</div>
 				<div class="p_li">
 					<h5>职务：</h5>
-					<span>产品经理</span>
+					<span><input name="job" class="p_input" disabled="disabled"/></span>
 				</div>
 				<div class="p_li">
 					<h5>介绍：</h5>
-					<span>文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介文字介绍文字介绍文字介绍</span>
+					<span class="textarea">
+					<textarea name="info" rows="5" cols="10" class="p_textarea"></textarea>
+					</span>
 				</div>
 			</div>
 		</div>
+		<div class="msg"><span>点击</span><a href="javascript:void(0)" class="create_v">新建</a><span>添加人员</span></div>
+		<div class="operate">
+			<input type="hidden" name="jobId" value="" />
+			<input type="hidden" name="eId" value="" />
+			<input type="hidden" name="picture" value="" />
+			<input type="button" class="create" value="新建" />
+			<input type="button" class="save" value="保存" />
+			<input type="button" class="delete" value="删除" />
+		</div>
+	</form>
 	</div>
 </div>

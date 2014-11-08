@@ -35,7 +35,7 @@
                 }
                 if($(options.content)[0]){
                     $("#artwl_message").html($(options.content).html());
-                    $(options.content).remove();
+                    $(options.content).html("");
                 }
             }
             $(options.showbtnid).click(function () {

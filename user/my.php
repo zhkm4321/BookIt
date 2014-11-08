@@ -2,7 +2,6 @@
 require_once '../config.php';
 header("Content-Type:text/html;charset=UTF-8");
 //检测是否登录，若没登录则转向登录界面
-session_start();
 if(!isset($_SESSION['userid'])){
     header("Location:login.html");
     exit();

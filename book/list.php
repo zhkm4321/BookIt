@@ -2,7 +2,6 @@
 require_once '../config.php';
 header("Content-Type:text/html;charset=UTF-8");
 //检测是否登录，若没登录则转向登录界面
-session_start();
 if(!isset($_SESSION['userid'])){
     header("Location:login.html");
     exit();
@@ -44,7 +43,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     <th>下单日期</th>
     <th>书名</th>
   </tr>
-<?php 
+<?php
 for ($i=0;$i<sizeof($orderArr);$i++){
 	echo "<tr>";
 	echo "<td>".$orderArr[$i]->id."</td>";

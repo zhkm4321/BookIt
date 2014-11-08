@@ -5,6 +5,7 @@ class Employee{
 	var $organization;//组织
 	var $info;//简介
 	var $job;//职责
+	var $sculpture;//头像
 	var $sort_id;//排序
 }
 ?>

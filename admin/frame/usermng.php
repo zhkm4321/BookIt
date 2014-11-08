@@ -4,7 +4,6 @@
  * 实体类定义
  */
 include $_SERVER["DOCUMENT_ROOT"].'/config.php';
-session_start();//!注意要放在类定义之后
 $user=$_SESSION['user'];
 if(!isset($user)){
 	header("Location: /admin/login/index.php");

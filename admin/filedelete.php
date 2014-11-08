@@ -1,6 +1,5 @@
-<?php 
+<?php
 include $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
-session_start();
 if(!isset($_POST['id'])){
 	echo "FALSE";
 	exit;

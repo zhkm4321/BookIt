@@ -1,11 +1,11 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"].'/config.php';
-session_start();//!注意要放在类定义之后
 //注销登录
 if(@$_GET['action']=='logout'){
 	unset($_SESSION['userid']);
 	unset($_SESSION['user']);
-	header ( "Location: /" );
+	header("Content-Type:text/html;charset=UTF-8");
+	echo "<script>alert('退出成功!');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
 	exit;
 }
 
@@ -33,6 +33,8 @@ if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 } else {//用户名密码错误
 	unset($_SESSION['userid']);
 	unset($_SESSION['user']);
+	header("Content-Type:text/html;charset=UTF-8");
+	echo "<script>alert(\"用户名或密码错误\");location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
 }
 $lastLoginLog="UPDATE b_user SET last_login=:lastLogin WHERE id=:id";
 $stmt=$dbh->prepare($lastLoginLog);
@@ -40,6 +42,7 @@ if(!$stmt->execute(array(':lastLogin'=>time(),':id'=>$user->id))){
 	echo "2222";
 	echo '记录登陆时间失败';
 }
-header ( "Location: /" );
+header("Content-Type:text/html;charset=UTF-8");
+echo "<script>location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
 exit;
 ?>

@@ -3,7 +3,6 @@
  * 数据库链接 实体类定义
  */
 include $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
-session_start (); // !注意要放在类定义之后
 $user = $_SESSION ['user'];
 if (! isset ( $user )) {
 	header ( "Location: /admin/login/index.php" );
@@ -24,7 +23,6 @@ if (! isset ( $user )) {
 <script src="<?=$base?>/thirdparty/thickbox/jquery.artwl.thickbox.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/public.js" type="text/javascript"></script>
 <script src="<?=$base?>/admin/res/js/cmsmng.js" type="text/javascript"></script>
-<script src="<?=$base?>/admin/res/js/bookIntroMng.js" type="text/javascript"></script>
 <script type="text/javascript">
 var BASE='<?=$base?>';
 </script>
@@ -48,7 +46,7 @@ var BASE='<?=$base?>';
 			<!-- 显示行业分类 -->
 			<ul class="left_nav">
 			<?php
-			$sql="select * from b_model order by sortId asc";
+			$sql="select * from b_model where parent_id is null order by sortId asc";
 			$stmt=$dbh->prepare($sql);
 			$stmt->execute();
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)){

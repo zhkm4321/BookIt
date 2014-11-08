@@ -1,6 +1,5 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"].'/config.php';
-session_start();
 header("Content-Type:text/html;charset=UTF-8");
 
 $user=new User();

@@ -1,15 +1,15 @@
-<?php 
+<?php
 include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
 if($_SERVER['REQUEST_METHOD']=="GET"){
 ?>
-	<script type="text/javascript">
-	$(function(){
-	    queryForBookList(1, 15);
-	})
-	</script>
+<script src="<?=$base?>/admin/res/js/bookIntroMng.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    queryForBookList(1, 15);
+})
+</script>
 <?php
 }else{
-include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
 $DEFINE_PAGESIZE=15;
 $bookArr [] = NULL; // 存放书籍列表
 
@@ -37,7 +37,7 @@ if (! isset ( $listPageSize )) {
 } else {
 	$_SESSION ['pageSize'] = $listPageSize;
 }
-$sql = "SELECT id,name,author FROM b_book";
+$sql = "SELECT id,name,author,cover FROM b_book";
 $stmt = $dbh->prepare ( $sql );
 $stmt->execute ();
 $i = 0;
@@ -45,6 +45,7 @@ while ( $row = $stmt->fetch ( PDO::FETCH_ASSOC ) ) {
 	$book = new Book ();
 	$book->id = $row ["id"];
 	$book->name = $row ["name"];
+	$book->cover = $row ["cover"];
 	$book->author = $row ["author"];
 	$bookArr [$i] = $book;
 	$i ++;
@@ -70,6 +71,7 @@ $offset = $listPageSize;
 				</th>
 				<th style="width: 60px;"><label style="cursor: pointer;" for="all">ID</label></th>
 				<th>书名</th>
+				<th style="width: 73px;">封面</th>
 				<th>作者</th>
 				<th style='width: 80px;'>操作</th>
 			</tr>
@@ -84,9 +86,10 @@ $offset = $listPageSize;
 				echo "<td><input type='checkbox' value='".$bookArr [$i]->id."' name='ids' uid='".$bookArr[$i]->id."'></td>";
 				echo "<td>".$bookArr [$i]->id . "</td>";
 				echo "<td>" . $bookArr [$i]->name . "</td>";
+				echo "<td><img src=\"" . $base.$bookArr [$i]->cover . "\" alt=\"封面\" ></td>";
 				echo "<td>" . $bookArr [$i]->author . "</td>";
 				echo "<td><a href='javascript:delBook(".$bookArr [$i]->id.");'>删除</a>&nbsp;".
-						"<a href='".$base."/admin/cms/editBook.php?id=".$bookArr[$i]->id."'>编辑</a></td>";
+						"<a href='".$base."/admin/service/editBook.php?id=".$bookArr[$i]->id."'>编辑</a></td>";
 				echo "</tr>";
 			}
 			?>
@@ -144,7 +147,7 @@ $offset = $listPageSize;
 			echo '<a class="num_normal" href="javascript:void(0);">' . $listTotalPage . '</a>';
 		}
 		?>
-		<?php if($listPageNo!=$listTotalPage){?>
+		<?php if($listPageNo!=$listTotalPage&&$listTotalPage>1){?>
 		<a id="nextPage" class="next" href="javascript:void(0);">下一页</a>
 		<?php }else{?>
 		<a class="btn_block" href="javascript:void(0);"></a>
@@ -167,6 +170,6 @@ $offset = $listPageSize;
 	</table>
 </form>
 </div>
-<?php 
+<?php
 }
 ?>

@@ -75,4 +75,56 @@ function compress_html($string) {
 	);
 	return preg_replace($pattern, $replace, $string);
 }
+
+function strCut($str,$length)//$str为要进行截取的字符串，$length为截取长度（支持汉字）
+{
+	$i = 0;
+	$start=0;
+    //完整排除之前的UTF8字符
+    while($i < $start) {
+        $ord = ord($str{$i});
+        if($ord < 192) {
+            $i++;
+        } elseif($ord <224) {
+            $i += 2;
+        } else {
+            $i += 3;
+        }
+    }
+    //开始截取
+    $result = '';
+    while($i < $start + $length && $i < strlen($str)) {
+        $ord = ord($str{$i});
+        if($ord < 192) {
+            $result .= $str{$i};
+            $i++;
+        } elseif($ord <224) {
+            $result .= $str{$i}.$str{$i+1};
+            $i += 2;
+        } else {
+            $result .= $str{$i}.$str{$i+1}.$str{$i+2};
+            $i += 3;
+        }
+    }
+    if($i < strlen($str)) {
+        $result .= '...';
+    }
+    return $result;
+}
+/**
+
+ * PHP清除html、css、js格式并去除空格的PHP函数,并具有截取UTF-8字符串的作用
+
+ */
+
+function htmlCut($string, $sublen){
+  $string = strip_tags($string);
+  $string = preg_replace ('/\n/is', '', $string);
+  $string = preg_replace ('/ |　/is', '', $string);
+  $string = preg_replace ('/&nbsp;/is', '', $string);
+  preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/", $string, $t_string);
+  if(count($t_string[0]) - 0 > $sublen) $string = join('', array_slice($t_string[0], 0, $sublen))."…";
+  else $string = join('', array_slice($t_string[0], 0, $sublen));
+  return $string;
+ }
 ?>

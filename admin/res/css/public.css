@@ -7,17 +7,17 @@ body,div,ul,li,p {
 		font-size:12px;
 		font-family:'microsoft yahei',arial;
 	}
-	
+
 a img {
 		border:none;
 		outline:none;
 	}
-	
+
 a ,input{
 		border:none;
 		outline:none;
 	}
-	
+
 body,html {
 		background:#fff;
 	}
@@ -27,7 +27,7 @@ body,html {
 		float:left;
 		min-width:1002px;
 	}
-	
+
 .clear {
 		clear:both;
 		line-height:0px;
@@ -35,28 +35,28 @@ body,html {
 		font-size:0px;
 		border:none;
 	}
-	
+
 /*--------------- 头文件 begin --------------------*/
-	
+
 .header {
 		width:100%;
 		height:54px;
 		float:left;
 		background:#333333;
 	}
-	
+
 .logo {
 		float:left;
 		width:277px;
 		height:54px;
 		background:url(../images/logo.png) no-repeat 0 0;
 	}
-	
+
 .top_nav {
 		float:right;
 		margin-top:14px;
 	}
-	
+
 .top_nav li {
 		float:left;
 		list-style:none;
@@ -69,7 +69,7 @@ body,html {
 		margin-left:15px;
 		display:inline;
 	}
-	
+
 .top_nav li a:link,.top_nav li a:visited,.top_nav li a:hover {
 		float:left;
 		line-height:40px;
@@ -77,11 +77,11 @@ body,html {
 		padding:0px 30px 0px 30px;
 		text-decoration:none;
 	}
-	
+
 .top_nav li.select a {
 		background:#f35130;
 	}
-	
+
 .user {
 		float:right;
 		line-height:20px;
@@ -90,7 +90,7 @@ body,html {
 		margin:25px 40px 0px 40px;
 		display:inline;
 	}
-	
+
 .user a:link,.user a:visited {
 		color:#fff;
 		text-decoration:none;
@@ -100,7 +100,7 @@ body,html {
 		color:#fff;
 		text-decoration:underline;
 	}
-	
+
 
 /*--------------- 头文件 end --------------------*/
 
@@ -110,7 +110,7 @@ body,html {
 	}
 
 /*--------------- 左侧一级导航 begin --------------------*/
-	
+
 .left_con {
 		width:165px;
 		float:left;
@@ -118,13 +118,13 @@ body,html {
 		overflow:hidden;
 		z-index: 888;
 	}
-	
+
 .left_nav {
 		width:100%;
 		float:left;
 		margin-top:40px;
 	}
-	
+
 .left_nav li.noselect {
 		width:100%;
 		height:63px;
@@ -147,7 +147,7 @@ body,html {
 .left_nav li.noselect:hover {
 		background:#e5e5e5;
 	}
-	
+
 .left_nav li.select{
 		width:100%;
 		height:63px;
@@ -165,7 +165,7 @@ body,html {
 		float:left;
 		text-align:center;
 		font-family:'microsoft yahei';
-	}	
+	}
 
 .grey_edit,.blue_edit{
 		width:24px;
@@ -203,35 +203,35 @@ body,html {
 /*--------------- 左侧一级导航 end --------------------*/
 
 /*--------------- 左侧二级导航 begin --------------------*/
-	
+
 .ej_con {
-		width:180px;
+		width:150px;
 		float:left;
 		background:#f5f5f5;
 		overflow-y:auto;
 		overflow-x:hidden;
-		display:none;
 		z-index:-1;
+	display: none;
 	}
 
 .ej_nav {
-		width:180px;
+		width:150px;
 		float:left;
-		margin:30px 0px 0px 5px;
+		margin:20px 0px 0px 0px;
 		display:inline;
 	}
-	
+
 .ej_nav li {
-		width:170px;
+		width:130px;
 		height:32px;
 		float:left;
 		list-style:none;
-		margin-top:15px;
+		margin:10px 10px 0 10px;
 		text-align:center;
 		cursor: pointer;
 	}
 .ej_nav li span{
-		width:150px;
+		width:130px;
 		height:32px;
 		color:#606060;
 		float:left;
@@ -240,7 +240,7 @@ body,html {
 		font-family:'microsoft yahei';
 	}
 .ej_nav li.select span{
-		width:150px;
+		width:130px;
 		height:32px;
 		color:#f3f3f3;
 		float:left;
@@ -253,7 +253,7 @@ body,html {
 		color:#606060;
 		text-decoration:none;
 	}
-	
+
 .ej_nav li.select,.ej_nav li.select:hover {
 		background:#4cb2f9;
 		color:#fff;
@@ -315,7 +315,7 @@ body,html {
 .ej_nav li:hover .add_btn32{
 		background:url(../images/add_32_hover.png) no-repeat 0 0;
 	}
-/*--------------- 左侧二级导航 end --------------------*/	
+/*--------------- 左侧二级导航 end --------------------*/
 
 /*--------------- 右侧内容 begin --------------------*/
 
@@ -324,13 +324,13 @@ body,html {
 		overflow:auto;
 		overflow-x:hidden;
 	}
-	
+
 .r_con {
 		width:100%;
 		float:left;
 		padding-left: 30px;
 	}
-	
+
 .cz {
 		width:95%;
 		height:40px;
@@ -338,7 +338,7 @@ body,html {
 		margin-left:30px;
 		padding-top:10px;
 	}
-	
+
 .blue_button {
 		width:73px;
 		height:30px;
@@ -418,58 +418,58 @@ body,html {
 		width:95%;
 		margin:0px auto;
 	}
-	
+
 .pic_tab {
 		width:100%;
 		border:1px solid #dcdcdc;
 		border-collapse:collapse;
 		margin-top:10px;
 	}
-	
+
 .pic_tab td,.pic_tab th {
 		border:1px solid #dcdcdc;
 		border-collapse:collapse;
 		text-align:center;
-		line-height:30px;
+		font:14px/30px 'microsoft yahei';
 		padding:6px;
+		vertical-align: middle;
 	}
-	
+
 .head_tr th {
 		height:30px;
 		padding:0px 5px 0px 5px;
 		background:#efefef url(../images/td_bg.gif) repeat-x 0 0;
 		white-space:nowrap;
-		font-weight:bold;
 	}
-	
+
 .pic_tab input {
 		vertical-align:middle;
 	}
-	
+
 .fg_tr td {
 		background:#f9f9f9;
 	}
-	
+
 .pic_tab td a:link,.pic_tab td a:visited {
 		color:#016bb7;
 		text-decoration:underline;
 	}
-	
+
 .pic_tab td a:hover {
 		color:#f35130;
 		text-decoration:underline;
 	}
 .pic_tab img{
-		width: 24px;
-		height:24px;
-	}	
+		width: 60px;
+		height:80px;
+	}
 /*------------------------------------翻页 begin------------------------------------*/
 
 
 .page {
 		width:100%;
 	}
-	
+
 .page_nr {
 		float:right;
 		padding-bottom:15px;
@@ -502,7 +502,7 @@ a.pre:hover {
 		text-decoration:none;
 		background:#e3e3e3;
 	}
-	
+
 a.next:link,a.next:visited {
 		float:left;
 		height:22px;
@@ -514,17 +514,17 @@ a.next:link,a.next:visited {
 		font-family:'microsoft yahei';
 		border:1px solid #e3e3e3;
 	}
-	
+
 a.next:hover {
 		color:#000;
 		text-decoration:none;
 		background:#e3e3e3;
 	}
-	
+
 a.next:hover span {
 		color:#ff6400;
 	}
-		
+
 a.num_select:link,a.num_select:visited,a.num_select:hover {
 		float:left;
 		height:22px;
@@ -539,7 +539,7 @@ a.num_select:link,a.num_select:visited,a.num_select:hover {
 		background:#2875cc;
 		border:1px solid #2875cc;
 	}
-	
+
 a.num_normal:link,a.num_normal:visited,a.num_normal:hover {
 		float:left;
 		height:22px;
@@ -552,13 +552,13 @@ a.num_normal:link,a.num_normal:visited,a.num_normal:hover {
 		font-family:'microsoft yahei';
 		border:1px solid #e3e3e3;
 	}
-	
+
 a.num_normal:hover {
 		color:#000;
 		text-decoration:none;
 		background:#e3e3e3;
 	}
-	
+
 .syh {
 		float:left;
 		padding:0 11px;
@@ -571,21 +571,21 @@ a.num_normal:hover {
 /*------------------------------------翻页 end------------------------------------*/
 
 
-/*--------------- 右侧内容 end --------------------*/	
+/*--------------- 右侧内容 end --------------------*/
 
 
-/*--------------- 登录 begin --------------------*/	
+/*--------------- 登录 begin --------------------*/
 
 .login_body {
 		background:url(../images/bg.jpg) no-repeat center 0;
 	}
-	
+
 .login {
 		width:1100px;
 		margin:0px auto;
 		padding-top:100px;
 	}
-	
+
 .login_logo {
 		width:522px;
 		height:58px;
@@ -601,7 +601,7 @@ a.num_normal:hover {
 		float:right;
 		background:url(../images/dl_bg.png) no-repeat 0 0;
 	}
-	
+
 .dl_k {
 		width:385px;
 		height:66px;
@@ -610,19 +610,19 @@ a.num_normal:hover {
 		display:inline;
 		background:url(../images/dl_input.png) no-repeat 0 0;
 	}
-	
+
 .person {
 		float:left;
 		margin:18px 0px 0px 19px;
 		display:inline;
 	}
-	
+
 .lock {
 		float:left;
 		margin:17px 0px 0px 19px;
 		display:inline;
 	}
-	
+
 .login_input {
 		width:305px;
 		height:40px;
@@ -636,7 +636,7 @@ a.num_normal:hover {
 		background:none;
 		border:0px solid #fff;
 	}
-	
+
 .dl_but {
 		width:389px;
 		height:78px;
@@ -648,10 +648,10 @@ a.num_normal:hover {
 		background:url(../images/dl_but.png) no-repeat 0 0;
 	}
 
-/*--------------- 登录 end --------------------*/	
+/*--------------- 登录 end --------------------*/
 
 
-/*--------------- 上传图片 begin --------------------*/	
+/*--------------- 上传图片 begin --------------------*/
 
 .sc_bt {
 		width:100%;
@@ -661,14 +661,14 @@ a.num_normal:hover {
 		left:0px;
 		z-index:200;
 	}
-	
+
 .sc_nr {
 		width:980px;
 		height:107px;
 		margin:0px auto;
 		background:#2499e4 url(../images/r_pic.gif) no-repeat right 0;
 	}
-	
+
 .sc_title {
 		float:left;
 		line-height:30px;
@@ -680,7 +680,7 @@ a.num_normal:hover {
 		margin:36px 0px 0px 20px;
 		display:inline;
 	}
-	
+
 .sc_center {
 		width:982px;
 		padding-top:127px;
@@ -688,14 +688,14 @@ a.num_normal:hover {
 		margin:0px auto;
 		padding-bottom:20px;
 	}
-	
+
 .sc_con {
 		width:100%;
 		float:left;
 		border:1px solid #e5e5e5;
 		background:#fff;
 	}
-	
+
 .pic_xx {
 		background:#f5f5f5;
 		line-height:37px;
@@ -706,7 +706,7 @@ a.num_normal:hover {
 		border-bottom:1px solid #e5e5e5;
 		line-height:37px;
 	}
-	
+
 .pic_w {
 		line-height:37px;
 		float:left;
@@ -715,7 +715,7 @@ a.num_normal:hover {
 		font-family:'microsoft yahei';
 		padding-left:40px;
 	}
-	
+
 .gjz_word {
 		width:400px;
 		border:1px solid #e0e0e0;
@@ -738,12 +738,12 @@ a.num_normal:hover {
 		background:#fff;
 		z-index:100;
 	}
-	
+
 .select_pic {
 		float:right;
 		cursor:pointer;
 	}
-	
+
 .input_text {
 		width:230px;
 		height:32px;

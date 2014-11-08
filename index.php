@@ -1,9 +1,27 @@
 <?php
 include $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
-session_start ();
+$_SESSION['PAGETITLE']="";
 $user=NULL;
 if(isset($_SESSION["user"])){
 	$user=$_SESSION["user"];
+}
+$infoArr=array();
+//查询资讯列表
+$sql = "SELECT * FROM b_info where model_id=:modelId order by info_create_date desc limit 0,6";
+$stmt = $dbh->prepare ( $sql );
+$stmt->execute (array("modelId"=>5));
+$i = 0;
+while ( $row = $stmt->fetch ( PDO::FETCH_ASSOC ) ) {
+	$info = new Info ();
+	$info->id = $row ["id"];
+	$info->model_id = $row ["model_id"];
+	$info->info_title=$row["info_title"];
+	$info->info_content = $row ["info_content"];
+	$info->info_title_img = $row ["info_title_img"];
+	$info->info_create_date = $row ["info_create_date"];
+	$info->info_sort_date = $row ["info_sort_date"];
+	$infoArr [$i] = $info;
+	$i ++;
 }
 ?>
 
@@ -14,32 +32,11 @@ if(isset($_SESSION["user"])){
 <title>易服通惠 - 首页</title>
 <link href="<?=$base ?>/res/css/reset.css" rel="stylesheet" type="text/css" />
 <Link href="<?=$base ?>/res/css/global.css" rel="stylesheet" type="text/css" />
-<link href="<?=$base ?>/res/css/home.css" rel="stylesheet" type="text/css">
+<link href="<?=$base ?>/res/css/home.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-	<!-- 头部 begin-->
-	<div class="head">
-		<table cellpadding="0" cellspacing="0" border="0" class="head_td">
-			<tr>
-				<td class="td_bg">&nbsp;</td>
-				<td class="td_logo" width="497">&nbsp;</td>
-				<td class="td_bg">&nbsp;</td>
-			</tr>
-		</table>
-		<div class="head_title">ITSS运维通用要求解读与应用</div>
-		<div class="head_cz">
-			<?php
-			if(isset($user)){
-				echo '<a href="javascript:void(0);" class="dc">你好：'.$user->realname.'</a>';
-			}else{
-				echo '<a href="javascript:void(0);" class="dl">登录</a>';
-			}
-			?>
-			<a title="设为首页" class="home" href="javascript:void(0);">设为首页</a><a href="javascript:void(0);" class="about">关于我们</a>
-		</div>
-	</div>
-	<!-- 头部 end-->
+	<?php include $_SERVER["DOCUMENT_ROOT"].'/include/head.php'?>
 	<!-- 内容 begin-->
 	<div class="content">
 		<div class="full_screen">
@@ -63,38 +60,26 @@ if(isset($_SESSION["user"])){
 		<!-- full_screen end -->
 		<div class="sy_con layer">
 			<div class="con_link layer">
-				<a href="#"><img src="<?=$base ?>/res/images/plink_01.jpg"></a> <a href="#"><img src="<?=$base ?>/res/images/plink_02.jpg"></a> <a href="#"><img
-					src="<?=$base ?>/res/images/plink_03.jpg"></a>
+				<a href="<?=$base?>/booklist.php" target="_blank"><img src="<?=$base ?>/res/images/plink_01.jpg"></a>
+				<a href="<?=$base?>/team.php" target="_blank"><img src="<?=$base ?>/res/images/plink_02.jpg"></a>
+				<a href="<?=$base?>/cooperation.php" target="_blank"><img src="<?=$base ?>/res/images/plink_03.jpg"></a>
 			</div>
 			<div class="gd_images">
 				<a href="javascript:void(0)" class="btn_img left_btn" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></a>
 				<div class="mar_con" id="ISL_Cont">
 					<div style="width: 100000px;">
 						<div id="List1">
-							<div class="pic">
-								<img src="<?=$base ?>/res/images/xpic01.jpg" class="pic_img" />
-								<div class="pic_ms">
-									<h3>文章标题文字</h3>
-									<p>文章简介文字内容概括文章简介文字内容概括文章简介文字内容概括文章简介文字内容...</p>
-									<h4>2014-06-15</h4>
-								</div>
-							</div>
-							<div class="pic">
-								<img src="<?=$base ?>/res/images/xpic02.jpg" class="pic_img" />
-								<div class="pic_ms">
-									<h3>文章标题文字</h3>
-									<p>文章简介文字内容概括文章简介文字内容概括文章简介文字内容概括文章简介文字内容...</p>
-									<h4>2014-06-15</h4>
-								</div>
-							</div>
-							<div class="pic">
-								<img src="<?=$base ?>/res/images/xpic03.jpg" class="pic_img" />
-								<div class="pic_ms">
-									<h3>文章标题文字</h3>
-									<p>文章简介文字内容概括文章简介文字内容概括文章简介文字内容概括文章简介文字内容...</p>
-									<h4>2014-06-15</h4>
-								</div>
-							</div>
+							<?php
+							for ($j = 0; $j < sizeof($infoArr); $j++) {
+								echo "<div class=\"pic\">";
+								echo "<a href=\"".$base."/info.php?id=".$infoArr[$j]->id."\" target=\"_blank\"><img src=\"".$base.$infoArr[$j]->info_title_img."\" class=\"pic_img\" /></a>";
+								echo "<div class=\"pic_ms\">";
+								echo "<h3><a href=\"".$base."/info.php?id=".$infoArr[$j]->id."\" target=\"_blank\">".strCut($infoArr[$j]->info_title,27)."</a></h3>";
+								echo "<p>".htmlCut($infoArr[$j]->info_content,38)."</p>";
+								echo "<h4>".date('Y-m-d',$infoArr[$j]->info_create_date)."</h4>";
+								echo "</div></div>";
+							}
+							?>
 						</div>
 						<div id="List2"></div>
 					</div>
@@ -103,59 +88,11 @@ if(isset($_SESSION["user"])){
 			</div>
 		</div>
 	</div>
-	<!-- 内容 end-->
-	<div class="foot_link">
-		<div class="link_con layer">
-			<div class="con_li">
-				<h4>友情链接</h4>
-				<p>
-					<a href="#">中关村在线</a> <a href="#">电脑包</a> <a href="#">电子计算机硬件与技术</a>
-				</p>
-			</div>
-			<div class="con_li">
-				<h4>联系我们</h4>
-				<p class="p_r">
-					地址：xxx<br> 邮箱：xxx<br> 电话：xxx
-				</p>
-			</div>
-			<div class="con_web">
-				<img src="<?=$base ?>/res/images/wx.png"><br>关注微博
-			</div>
-			<div class="con_web">
-				<img src="<?=$base ?>/res/images/wx.png"><br>关注微信
-			</div>
-		</div>
-	</div>
-	<div class="foot_word">版权信息文字</div>
-	<!--蒙灰开始-->
-	<div class="menghui" id="menghui">
-		<iframe width="100%" height="99%" class="iframe" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-	</div>
-	<!--蒙灰结束-->
+	<?php include $_SERVER["DOCUMENT_ROOT"].'/include/foot.php'?>
 
-	<div class="tc_ceng" id="dl">
-		<div class="tc_til">
-			<a href="javascript:void(0)"><img src="<?=$base ?>/res/images/close.png" class="close" /></a>
-		</div>
-		<form id="loginForm" action="/front/login.php" method="post">
-		<div class="dl_k">
-			<h3>邮箱：</h3>
-			<input name="username" type="text" class="dl_input" />
-			<h3>密码：</h3>
-			<input name="password" type="password" class="dl_input" />
-			<div class="error">
-				<span>用户名或密码错误，请重新输入</span>
-			</div>
-			<div class="dl_btn">
-				<input name="submit" type="submit" value="登 录" />
-			</div>
-			<div class="dl_sm">请使用您预定时填写的邮箱地址和密码登录</div>
-		</div>
-		</form>
-	</div>
-	<script type="text/javascript" src="<?=$jquery?>"></script>
-	<script type="text/javascript" src="<?=$base ?>/res/javascrips/banner.min.js"></script>
-	<script type="text/javascript" src="<?=$base ?>/res/javascrips/global.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<?=$jquery?>"></script>
+	<script type="text/javascript" charset="utf-8" src="<?=$base ?>/res/javascrips/banner.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<?=$base ?>/res/javascrips/global.js"></script>
 	<script type="text/javascript">
 		$(".js_fullscreen_banner").addBanner({
 			effect : "twin",

@@ -1,6 +1,5 @@
 <?php
 include_once $_SERVER ["DOCUMENT_ROOT"] . '/config.php';
-session_start ();
 header ( "Content-type: text/html; charset=utf-8" );
 if (isset ( $_GET ["modelId"] )) {
 	$modelId = $_GET ["modelId"];
@@ -8,7 +7,7 @@ if (isset ( $_GET ["modelId"] )) {
 	$stmt = $dbh->prepare ( $sql );
 	$stmt->bindParam ( ":modelId", $modelId );
 	$stmt->execute ();
-	
+
 	$picArr = array ();
 	$i = 0;
 	while ( $row = $stmt->fetch ( PDO::FETCH_ASSOC ) ) {

@@ -87,7 +87,7 @@ $(function() {
 		title : 'Images',
 		extensions : 'gif,jpg,jpeg,bmp,png',
 		mimeTypes : 'image/*'
-	    },
+	    }
 	});
 
 	// 添加“添加文件”的按钮，
@@ -381,7 +381,7 @@ $(function() {
 		stats = uploader.getStats();
 		if (stats.successNum=$queue) {
 		    // 上传完成
-		    
+
 		} else {
 		    // 没有成功的图片，重设
 		    state = 'done';

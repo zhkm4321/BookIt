@@ -1,5 +1,5 @@
 /*javascript document*/
-$(document).ready(function() {
+$(function() {
 
     // 设置控制banner滚动的按钮区域
     function adjustBannerHandle() {
@@ -19,8 +19,8 @@ $(document).ready(function() {
     });
 
     $("a.dl").on("click",function() {
-	$('.menghui').show();
-	$('.tc_ceng').show();
+		$('.menghui').show();
+		$('.tc_ceng').show();
     });
     var curinfo = null;
     $("a.dc").on("mouseover",function() {
